@@ -1,8 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://fpyjp475piwv"]
+[gd_scene load_steps=6 format=3 uid="uid://fpyjp475piwv"]
 
 [ext_resource type="PackedScene" uid="uid://tuv2d44iv0ue" path="res://scenes/prefabs/player.tscn" id="1_wvub0"]
+[ext_resource type="Texture2D" uid="uid://cembq1866m042" path="res://icon.svg" id="2_7q46l"]
+[ext_resource type="PackedScene" uid="uid://ceidtf6p5gate" path="res://scenes/prefabs/interactable.tscn" id="2_pthwu"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_lr008"]
+
+[sub_resource type="GDScript" id="GDScript_j0n33"]
+script/source = "extends Node2D
+
+func do_action():
+	print(\"ITEM ACTION\")
+"
 
 [node name="Main" type="Node2D"]
 
@@ -19,3 +28,13 @@ mesh = SubResource("CapsuleMesh_lr008")
 position = Vector2(-400, 0)
 scale = Vector2(93.5, 74)
 mesh = SubResource("CapsuleMesh_lr008")
+
+[node name="Item" type="Node2D" parent="."]
+position = Vector2(837, 156)
+script = SubResource("GDScript_j0n33")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Item"]
+texture = ExtResource("2_7q46l")
+
+[node name="Interactable" parent="Item" instance=ExtResource("2_pthwu")]
