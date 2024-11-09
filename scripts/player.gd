@@ -6,9 +6,6 @@ const JUMP_VELOCITY = -400.0
 @export var is_limited := true
 
 func _process(delta):
-	if $Area2D.overlaps_area(""):
-		print("nice")
-	
 	if is_limited:
 		if self.position.x > 400:
 			self.position.x = -400
