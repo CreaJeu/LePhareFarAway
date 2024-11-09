@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://c1thxdjngkoj2"
+path="res://.godot/imported/stonetile_background.aseprite-8534da5fd0cc4cf4dcd781c9842a92ce.res"
+
+[deps]
+
+source_file="res://assets/sprites/tileset/stonetile_background.aseprite"
+dest_files=["res://.godot/imported/stonetile_background.aseprite-8534da5fd0cc4cf4dcd781c9842a92ce.res"]
+
+[params]
+
