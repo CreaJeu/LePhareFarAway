@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://fpyjp475piwv"]
+[gd_scene load_steps=10 format=3 uid="uid://fpyjp475piwv"]
 
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_d050v"]
 [ext_resource type="PackedScene" uid="uid://tuv2d44iv0ue" path="res://scenes/prefabs/player.tscn" id="1_wvub0"]
 [ext_resource type="PackedScene" uid="uid://ceidtf6p5gate" path="res://scenes/prefabs/interactable.tscn" id="2_kfq6f"]
 [ext_resource type="Texture2D" uid="uid://dk26by5bk2kp5" path="res://assets/sprites/tileset/stonetile_background.png" id="3_yonmt"]
@@ -16,7 +17,9 @@ func do_action():
 	print(\"AAAAAAAA\")
 "
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("msgWriter")]
+script = ExtResource("1_d050v")
+msgWriter = NodePath("CanvasLayer/RichTextLabel")
 
 [node name="ObjetTest" type="Node2D" parent="."]
 position = Vector2(-200, 0)
