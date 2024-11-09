@@ -3,5 +3,10 @@ extends Node
 var dialogs = []
 
 func _ready():
-	var dialogsString: String = FileAccess.get_file_as_string("res://resources/data/dialogs.json")
-	dialogs = JSON.new().parse(dialogsString)
+	var file = FileAccess.open("res://resources/data/dialogs.json", FileAccess.READ)
+
+	if file:
+		var content = file.get_as_text()
+		file.close()
+		dialogs = JSON.parse_string(content)
+		print(dialogs)

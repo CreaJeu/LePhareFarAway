@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://tuv2d44iv0ue"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_it5w8"]
-[ext_resource type="SpriteFrames" uid="uid://debwj5nm14ucm" path="res://assets/caracter/caracterAnimation.res" id="2_35aa2"]
+[ext_resource type="SpriteFrames" path="res://assets/caracter/caracterAnimation.res" id="2_35aa2"]
 [ext_resource type="Texture2D" uid="uid://b68pnjxm7x05o" path="res://assets/caracter/caracter.png" id="2_ccdiw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_07orv"]

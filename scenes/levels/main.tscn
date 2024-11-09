@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://tuv2d44iv0ue" path="res://scenes/prefabs/player.tscn" id="1_wvub0"]
 [ext_resource type="PackedScene" uid="uid://ceidtf6p5gate" path="res://scenes/prefabs/interactable.tscn" id="2_kfq6f"]
 [ext_resource type="Texture2D" uid="uid://dk26by5bk2kp5" path="res://assets/sprites/tileset/stonetile_background.png" id="3_yonmt"]
-[ext_resource type="PackedScene" path="res://scenes/prefabs/stairway.tscn" id="4_y15gb"]
+[ext_resource type="PackedScene" uid="uid://b5uvlupwwli50" path="res://scenes/prefabs/stairway.tscn" id="4_y15gb"]
 [ext_resource type="Script" path="res://scripts/writeMessage.gd" id="5_4wyvk"]
 [ext_resource type="Texture2D" uid="uid://rd1os22xmhhj" path="res://assets/sprites/ui/cursor.png" id="6_a5bn7"]
 [ext_resource type="Script" path="res://scripts/read_more_button.gd" id="7_sarhe"]

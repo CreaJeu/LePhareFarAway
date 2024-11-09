@@ -26,7 +26,7 @@ func _physics_process(delta):
 		
 		
 	elif Input.is_action_pressed("right"):
-		print_debug("action pressed right")
+		#print_debug("action pressed right")
 		_animation_player.play("walk")
 		_animation_player.flip_h = false
 		
