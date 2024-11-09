@@ -1,16 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://fpyjp475piwv"]
+[gd_scene load_steps=5 format=3 uid="uid://fpyjp475piwv"]
 
 [ext_resource type="PackedScene" uid="uid://tuv2d44iv0ue" path="res://scenes/prefabs/player.tscn" id="1_wvub0"]
+[ext_resource type="PackedScene" uid="uid://ceidtf6p5gate" path="res://scenes/prefabs/interactable.tscn" id="2_kfq6f"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_lr008"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vx121"]
-size = Vector2(82, 22)
+[sub_resource type="GDScript" id="GDScript_ph7y7"]
+script/source = "extends Node2D
+
+func do_action():
+	print(\"AAAAAAAA\")
+"
 
 [node name="Main" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_wvub0")]
-position = Vector2(393, 154)
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 position = Vector2(400, 0)
@@ -22,8 +26,10 @@ position = Vector2(-400, 0)
 scale = Vector2(93.5, 74)
 mesh = SubResource("CapsuleMesh_lr008")
 
-[node name="interactable" type="Area2D" parent="."]
-position = Vector2(338, 153)
+[node name="ObjetTest" type="Node2D" parent="."]
+position = Vector2(-200, 0)
+script = SubResource("GDScript_ph7y7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="interactable"]
-shape = SubResource("RectangleShape2D_vx121")
+[node name="Interactable" parent="ObjetTest" instance=ExtResource("2_kfq6f")]
+sizeX = 35.0
+sizeY = 87.0

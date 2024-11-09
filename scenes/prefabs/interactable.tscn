@@ -1,17 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://ceidtf6p5gate"]
+[gd_scene load_steps=5 format=3 uid="uid://ceidtf6p5gate"]
 
 [ext_resource type="Script" path="res://scripts/Interactable.gd" id="1_pukyx"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_dwayc"]
-radius = 231.38
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cmvd5"]
+transparency = 1
+albedo_color = Color(0.501961, 1, 0.909804, 0.113725)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fm6rw"]
+material = SubResource("StandardMaterial3D_cmvd5")
+size = Vector3(20, 20, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xnx0g"]
 
 [node name="Interactable" type="Node2D"]
 script = ExtResource("1_pukyx")
 
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+mesh = SubResource("BoxMesh_fm6rw")
+
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_dwayc")
+shape = SubResource("RectangleShape2D_xnx0g")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

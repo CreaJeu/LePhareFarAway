@@ -2,6 +2,16 @@ extends Node2D
 
 var playerInZone: bool = false
 
+@export var sizeX : float
+@export var sizeY : float
+@onready var collision: CollisionShape2D = $Area2D/CollisionShape2D
+@onready var mesh: MeshInstance2D = $MeshInstance2D
+
+func _ready():
+	mesh.mesh.size.x = sizeX
+	mesh.mesh.size.y = sizeY
+	collision.shape.size.x = sizeX
+	collision.shape.size.y = sizeY
 
 func _process(delta):
 	if Input.is_action_just_pressed("interact") and playerInZone:
