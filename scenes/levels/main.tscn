@@ -2,8 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://tuv2d44iv0ue" path="res://scenes/prefabs/player.tscn" id="1_wvub0"]
 [ext_resource type="PackedScene" uid="uid://ceidtf6p5gate" path="res://scenes/prefabs/interactable.tscn" id="2_kfq6f"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_lr008"]
+[ext_resource type="Texture2D" uid="uid://dk26by5bk2kp5" path="res://assets/sprites/tileset/stonetile_background.png" id="3_yonmt"]
 
 [sub_resource type="GDScript" id="GDScript_ph7y7"]
 script/source = "extends Node2D
@@ -14,18 +13,6 @@ func do_action():
 
 [node name="Main" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_wvub0")]
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-position = Vector2(400, 0)
-scale = Vector2(93.5, 74)
-mesh = SubResource("CapsuleMesh_lr008")
-
-[node name="MeshInstance2D2" type="MeshInstance2D" parent="."]
-position = Vector2(-400, 0)
-scale = Vector2(93.5, 74)
-mesh = SubResource("CapsuleMesh_lr008")
-
 [node name="ObjetTest" type="Node2D" parent="."]
 position = Vector2(-200, 0)
 script = SubResource("GDScript_ph7y7")
@@ -33,3 +20,17 @@ script = SubResource("GDScript_ph7y7")
 [node name="Interactable" parent="ObjetTest" instance=ExtResource("2_kfq6f")]
 sizeX = 35.0
 sizeY = 87.0
+
+[node name="StonetileBackground" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-640, 0)
+scale = Vector2(10, 10)
+texture = ExtResource("3_yonmt")
+
+[node name="StonetileBackground2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(640, 0)
+scale = Vector2(10, 10)
+texture = ExtResource("3_yonmt")
+
+[node name="Player" parent="." instance=ExtResource("1_wvub0")]
