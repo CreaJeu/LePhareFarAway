@@ -1,8 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://fpyjp475piwv"]
+[gd_scene load_steps=3 format=3 uid="uid://fpyjp475piwv"]
 
 [ext_resource type="PackedScene" uid="uid://tuv2d44iv0ue" path="res://scenes/prefabs/player.tscn" id="1_wvub0"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_lr008"]
 
 [node name="Main" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_wvub0")]
 position = Vector2(393, 154)
+is_limited = false
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(400, 0)
+scale = Vector2(93.5, 74)
+mesh = SubResource("CapsuleMesh_lr008")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="."]
+position = Vector2(-400, 0)
+scale = Vector2(93.5, 74)
+mesh = SubResource("CapsuleMesh_lr008")

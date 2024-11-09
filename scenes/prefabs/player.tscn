@@ -9,10 +9,19 @@
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_it5w8")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_07orv")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CapsuleShape2D_07orv")
 
 [node name="WorldModel" type="Node2D" parent="."]
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="WorldModel"]
+position = Vector2(4.76837e-07, 2.38419e-06)
+scale = Vector2(20, 15)
 mesh = SubResource("CapsuleMesh_g8o60")
+
+[node name="Camera2D" type="Camera2D" parent="."]
