@@ -1,10 +1,9 @@
 [gd_scene load_steps=4 format=3 uid="uid://tuv2d44iv0ue"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_it5w8"]
+[ext_resource type="Texture2D" uid="uid://b68pnjxm7x05o" path="res://assets/caracter/caracter.png" id="2_ccdiw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_07orv"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_g8o60"]
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_it5w8")
@@ -14,9 +13,9 @@ shape = SubResource("CapsuleShape2D_07orv")
 
 [node name="WorldModel" type="Node2D" parent="."]
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="WorldModel"]
-position = Vector2(4.76837e-07, 2.38419e-06)
-scale = Vector2(20, 15)
-mesh = SubResource("CapsuleMesh_g8o60")
+[node name="Sprite2D" type="Sprite2D" parent="WorldModel"]
+scale = Vector2(6, 6)
+texture = ExtResource("2_ccdiw")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)

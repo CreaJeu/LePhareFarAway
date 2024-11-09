@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5uvlupwwli50"]
+
+[ext_resource type="Script" path="res://scripts/stairway.gd" id="1_nuq5g"]
+[ext_resource type="Texture2D" uid="uid://cembq1866m042" path="res://icon.svg" id="2_mbo6n"]
+[ext_resource type="PackedScene" uid="uid://ceidtf6p5gate" path="res://scenes/prefabs/interactable.tscn" id="3_eykdx"]
+
+[node name="Stairway1" type="Node2D"]
+script = ExtResource("1_nuq5g")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_mbo6n")
+
+[node name="Interactable" parent="." instance=ExtResource("3_eykdx")]
+sizeX = 200.0
+sizeY = 200.0

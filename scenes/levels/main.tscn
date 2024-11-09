@@ -1,25 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://fpyjp475piwv"]
+[gd_scene load_steps=6 format=3 uid="uid://fpyjp475piwv"]
 
 [ext_resource type="PackedScene" uid="uid://tuv2d44iv0ue" path="res://scenes/prefabs/player.tscn" id="1_wvub0"]
 [ext_resource type="PackedScene" uid="uid://ceidtf6p5gate" path="res://scenes/prefabs/interactable.tscn" id="2_kfq6f"]
 [ext_resource type="Texture2D" uid="uid://dk26by5bk2kp5" path="res://assets/sprites/tileset/stonetile_background.png" id="3_yonmt"]
-[ext_resource type="Texture2D" uid="uid://cembq1866m042" path="res://icon.svg" id="4_cqs5e"]
+[ext_resource type="PackedScene" uid="uid://b5uvlupwwli50" path="res://scenes/prefabs/stairway.tscn" id="4_y15gb"]
 
 [sub_resource type="GDScript" id="GDScript_ph7y7"]
 script/source = "extends Node2D
 
 func do_action():
 	print(\"AAAAAAAA\")
-"
-
-[sub_resource type="GDScript" id="GDScript_xwq15"]
-script/source = "extends Node2D
-
-@export var player: CharacterBody2D
-@export var step = -650
-
-func do_action():
-	player.position.y += step
 "
 
 [node name="Main" type="Node2D"]
@@ -44,18 +34,47 @@ position = Vector2(640, 0)
 scale = Vector2(10, 10)
 texture = ExtResource("3_yonmt")
 
+[node name="StonetileBackground3" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-640, -800)
+scale = Vector2(10, 10)
+texture = ExtResource("3_yonmt")
+
+[node name="StonetileBackground4" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(640, -800)
+scale = Vector2(10, 10)
+texture = ExtResource("3_yonmt")
+
+[node name="StonetileBackground5" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-640, -1600)
+scale = Vector2(10, 10)
+texture = ExtResource("3_yonmt")
+
+[node name="StonetileBackground6" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(640, -1600)
+scale = Vector2(10, 10)
+texture = ExtResource("3_yonmt")
+
 [node name="Player" parent="." instance=ExtResource("1_wvub0")]
+is_limited = false
 
-[node name="Stairway1" type="Node2D" parent="." node_paths=PackedStringArray("player")]
-position = Vector2(468, 4)
-script = SubResource("GDScript_xwq15")
+[node name="Stairway1" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_y15gb")]
+position = Vector2(919, 0)
 player = NodePath("../Player")
-metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Stairway1"]
-texture = ExtResource("4_cqs5e")
+[node name="Stairway2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_y15gb")]
+position = Vector2(940, -809)
+player = NodePath("../Player")
+step = 750
 
-[node name="Interactable" parent="Stairway1" instance=ExtResource("2_kfq6f")]
-position = Vector2(1, 0)
-sizeX = 200.0
-sizeY = 200.0
+[node name="Stairway3" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_y15gb")]
+position = Vector2(-1032, -809)
+player = NodePath("../Player")
+
+[node name="Stairway4" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_y15gb")]
+position = Vector2(-1032, -1600)
+player = NodePath("../Player")
+step = 750
