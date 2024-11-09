@@ -1,12 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://fpyjp475piwv"]
+[gd_scene load_steps=9 format=3 uid="uid://fpyjp475piwv"]
 
 [ext_resource type="PackedScene" uid="uid://tuv2d44iv0ue" path="res://scenes/prefabs/player.tscn" id="1_wvub0"]
 [ext_resource type="PackedScene" uid="uid://ceidtf6p5gate" path="res://scenes/prefabs/interactable.tscn" id="2_kfq6f"]
 [ext_resource type="Texture2D" uid="uid://dk26by5bk2kp5" path="res://assets/sprites/tileset/stonetile_background.png" id="3_yonmt"]
 [ext_resource type="PackedScene" uid="uid://b5uvlupwwli50" path="res://scenes/prefabs/stairway.tscn" id="4_y15gb"]
+[ext_resource type="Script" path="res://scripts/writeMessage.gd" id="5_4wyvk"]
+[ext_resource type="Texture2D" uid="uid://rd1os22xmhhj" path="res://assets/sprites/ui/cursor.png" id="6_a5bn7"]
+[ext_resource type="Script" path="res://scripts/read_more_button.gd" id="7_sarhe"]
 
 [sub_resource type="GDScript" id="GDScript_ph7y7"]
 script/source = "extends Node2D
+
 
 func do_action():
 	print(\"AAAAAAAA\")
@@ -78,3 +82,24 @@ player = NodePath("../Player")
 position = Vector2(-1032, -1600)
 player = NodePath("../Player")
 step = 750
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = 87.0
+offset_top = 494.0
+offset_right = 1087.0
+offset_bottom = 628.0
+theme_override_font_sizes/normal_font_size = 26
+script = ExtResource("5_4wyvk")
+
+[node name="ReadMoreButton" type="TextureRect" parent="CanvasLayer/RichTextLabel"]
+visible = false
+layout_mode = 0
+offset_left = 944.0
+offset_top = 97.0
+offset_right = 1072.0
+offset_bottom = 225.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_a5bn7")
+script = ExtResource("7_sarhe")
