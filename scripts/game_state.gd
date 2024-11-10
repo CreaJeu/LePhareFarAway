@@ -37,6 +37,7 @@ func get_mission_by_id(id: int):
 func add_mission(id: int):
 	var mission = get_mission_by_id(id)
 	missions.append(mission)
+	updateMissionsPanelContainer()
 
 
 func remove_mission(id: int):
@@ -44,6 +45,7 @@ func remove_mission(id: int):
 		if missions[i]["id"] == id:
 			missions.remove_at(i)
 			break
+	updateMissionsPanelContainer()
 	
 
 func read_conversation(id: int):

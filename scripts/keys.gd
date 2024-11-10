@@ -8,5 +8,5 @@ func _ready() -> void:
 func do_action(interaction_name: String):
 	GameState.emit_signal("play_sound", "PickupKeys")
 	GameState.has_keys = true
-	print("You have the keys")
+	GameState.remove_mission(2)
 	queue_free()

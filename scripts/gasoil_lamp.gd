@@ -24,4 +24,6 @@ func _process(delta):
 		if gasoil_level >= 100:
 			game_started = false
 			GameState.is_gasoil_lamp_filled = true
+			GameState.remove_mission(4)
+			GameState.add_mission(5)
 			GameState.read_conversation(2)
