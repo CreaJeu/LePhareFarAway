@@ -16,7 +16,7 @@
 [ext_resource type="Script" path="res://scripts/keys.gd" id="7_twk72"]
 [ext_resource type="Texture2D" uid="uid://bffuo30gvdmir" path="res://assets/sprites/objects/table.png" id="8_rofi5"]
 [ext_resource type="Script" path="res://scripts/camera_2d.gd" id="9_71xqd"]
-[ext_resource type="PackedScene" uid="uid://b264uow22b5bt" path="res://scenes/prefabs/stairway_closed.tscn" id="9_g25y6"]
+[ext_resource type="PackedScene" uid="uid://beacbs7htxw2d" path="res://scenes/prefabs/stairway_closed.tscn" id="9_g25y6"]
 [ext_resource type="Texture2D" uid="uid://bxhn57ims7nvq" path="res://assets/sprites/ui/journal.png" id="9_uw74q"]
 [ext_resource type="Script" path="res://scripts/journal_button.gd" id="10_dhrxt"]
 [ext_resource type="Texture2D" uid="uid://cm8422geuckv8" path="res://assets/sprites/objects/Cle.png" id="11_qg1d3"]
