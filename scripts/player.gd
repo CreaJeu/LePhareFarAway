@@ -28,16 +28,21 @@ func _physics_process(delta):
 		velocity.x = lerp(velocity.x,move_toward(velocity.x, 0, SPEED),delta * 10)
 		
 	if Input.is_action_pressed("left"):
+		$WorldModel/ParticlesLeft.emitting = true
+		$WorldModel/ParticlesRight.emitting = true
 		_animation_player.play("walk")
 		_animation_player.flip_h = true
 		
 		
 	elif Input.is_action_pressed("right"):
-		#print_debug("action pressed right")
+		$WorldModel/ParticlesLeft.emitting = true
+		$WorldModel/ParticlesRight.emitting = true
 		_animation_player.play("walk")
 		_animation_player.flip_h = false
 		
 	else:
+		$WorldModel/ParticlesLeft.emitting = false
+		$WorldModel/ParticlesRight.emitting = false
 		_animation_player.play("default")
 		
 

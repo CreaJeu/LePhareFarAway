@@ -28,3 +28,37 @@ animation = &"walk"
 visible = false
 scale = Vector2(6, 6)
 texture = ExtResource("2_ccdiw")
+
+[node name="ParticlesRight" type="CPUParticles2D" parent="WorldModel"]
+position = Vector2(49, 140)
+emitting = false
+amount = 30
+lifetime = 0.2
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 15.0
+direction = Vector2(1, -0.7)
+spread = 70.0
+gravity = Vector2(0, 10)
+initial_velocity_min = 50.0
+initial_velocity_max = 50.0
+scale_amount_min = 0.5
+scale_amount_max = 1.5
+color = Color(0.698039, 0.698039, 0.698039, 0.643137)
+
+[node name="ParticlesLeft" type="CPUParticles2D" parent="WorldModel"]
+position = Vector2(-26, 140)
+emitting = false
+amount = 30
+lifetime = 0.2
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 15.0
+direction = Vector2(1, -0.7)
+spread = 70.0
+gravity = Vector2(0, 10)
+initial_velocity_min = 50.0
+initial_velocity_max = 50.0
+scale_amount_min = 0.5
+scale_amount_max = 1.5
+color = Color(0.698039, 0.698039, 0.698039, 0.643137)
