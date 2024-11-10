@@ -1,0 +1,75 @@
+[gd_scene load_steps=10 format=3 uid="uid://cho04d3eh77c3"]
+
+[ext_resource type="Texture2D" uid="uid://380kw1oyjurn" path="res://assets/sprites/objects/Background.png" id="1_b27ng"]
+[ext_resource type="Script" path="res://scripts/tetemninijeu.gd" id="1_r1gb2"]
+[ext_resource type="Texture2D" uid="uid://dacvae14fvqws" path="res://assets/sprites/objects/Fond_mini_jeu.png" id="2_qd7ep"]
+[ext_resource type="Texture2D" uid="uid://ewgkmjkcbamw" path="res://assets/sprites/objects/Bouche_jeu_manger.png" id="2_xlvv7"]
+[ext_resource type="Script" path="res://scripts/spawner.gd" id="4_mjsgb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8yyk3"]
+size = Vector2(8.625, 25.25)
+
+[sub_resource type="GDScript" id="GDScript_sbw66"]
+script/source = "extends Area2D
+
+func _process(delta: float) -> void:
+	pass
+		
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uk3v0"]
+size = Vector2(1921, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tyjgc"]
+size = Vector2(102.5, 789)
+
+[node name="Pasmangercaffard" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(568, 353)
+scale = Vector2(5.51793, -6.51313)
+texture = ExtResource("1_b27ng")
+
+[node name="FondMiniJeu" type="Sprite2D" parent="Background"]
+position = Vector2(2.71841, 0.921218)
+scale = Vector2(1.81227, -1.53536)
+texture = ExtResource("2_qd7ep")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(504, 584)
+scale = Vector2(2, 2)
+script = ExtResource("1_r1gb2")
+
+[node name="BoucheJeuManger" type="Sprite2D" parent="CharacterBody2D"]
+scale = Vector2(6, 9.28571)
+texture = ExtResource("2_xlvv7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-184.25, 26.25)
+shape = SubResource("RectangleShape2D_8yyk3")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(181.5, 29.5)
+shape = SubResource("RectangleShape2D_8yyk3")
+
+[node name="spawner" type="Node2D" parent="."]
+position = Vector2(600, 0)
+script = ExtResource("4_mjsgb")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(589, 694)
+
+[node name="Area2D" type="Area2D" parent="StaticBody2D"]
+script = SubResource("GDScript_sbw66")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Area2D"]
+position = Vector2(-268.5, 0)
+shape = SubResource("RectangleShape2D_uk3v0")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1127, -413)
+shape = SubResource("RectangleShape2D_tyjgc")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(745, -369)
+shape = SubResource("RectangleShape2D_tyjgc")
