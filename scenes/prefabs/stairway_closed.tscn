@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://b264uow22b5bt"]
+
+[ext_resource type="Script" path="res://scripts/stairway_closed.gd" id="1_3h3t4"]
+[ext_resource type="Texture2D" uid="uid://bwfs0jov6whjo" path="res://assets/sprites/objects/door_and_escalier.png" id="2_esede"]
+[ext_resource type="Texture2D" uid="uid://ds1lj6mrvuboa" path="res://assets/sprites/objects/door_and_escalier_sauvegarde.png" id="3_57tku"]
+[ext_resource type="PackedScene" uid="uid://ceidtf6p5gate" path="res://scenes/prefabs/interactable.tscn" id="3_ebsr1"]
+
+[node name="StairwayClosed" type="Node2D"]
+script = ExtResource("1_3h3t4")
+metadata/_edit_group_ = true
+
+[node name="Sprite2DOpen" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(15, 15)
+texture = ExtResource("2_esede")
+
+[node name="Sprite2DClose" type="Sprite2D" parent="."]
+scale = Vector2(15, 15)
+texture = ExtResource("3_57tku")
+
+[node name="Interactable" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("3_ebsr1")]
+parent = NodePath("../Sprite2DOpen")
