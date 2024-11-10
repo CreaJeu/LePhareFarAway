@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://fpyjp475piwv"]
+[gd_scene load_steps=17 format=3 uid="uid://fpyjp475piwv"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_d050v"]
 [ext_resource type="PackedScene" uid="uid://tuv2d44iv0ue" path="res://scenes/prefabs/player.tscn" id="1_wvub0"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://scripts/writeMessage.gd" id="5_4wyvk"]
 [ext_resource type="PackedScene" uid="uid://ceidtf6p5gate" path="res://scenes/prefabs/interactable.tscn" id="5_lmybn"]
 [ext_resource type="Texture2D" uid="uid://rd1os22xmhhj" path="res://assets/sprites/ui/cursor.png" id="6_a5bn7"]
+[ext_resource type="Texture2D" uid="uid://bgfnjsfqjhl3u" path="res://assets/sprites/objects/garde_manger.png" id="7_5ogwh"]
 [ext_resource type="Texture2D" uid="uid://dr04iic5kmfwf" path="res://assets/sprites/objects/radio_single.png" id="7_bnlo4"]
 [ext_resource type="Script" path="res://scripts/radio.gd" id="7_cr3tb"]
 [ext_resource type="Script" path="res://scripts/read_more_button.gd" id="7_sarhe"]
@@ -59,6 +60,11 @@ texture = ExtResource("4_p7si1")
 
 [node name="Interactable" parent="Background/firstfloor/Generator" node_paths=PackedStringArray("parent") instance=ExtResource("5_lmybn")]
 parent = NodePath("../Sprite2D")
+
+[node name="GardeManger" type="Sprite2D" parent="Background/firstfloor"]
+position = Vector2(-807, 9)
+scale = Vector2(10, 10)
+texture = ExtResource("7_5ogwh")
 
 [node name="secondfloor" type="Node2D" parent="Background"]
 position = Vector2(0, -3000)
