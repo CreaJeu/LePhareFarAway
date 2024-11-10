@@ -93,10 +93,9 @@ position = Vector2(-900, 35)
 player = NodePath("../../../Player")
 step = -3000
 
-[node name="Radio" type="Node2D" parent="Background/secondfloor" node_paths=PackedStringArray("msgWriter")]
+[node name="Radio" type="Node2D" parent="Background/secondfloor"]
 position = Vector2(0, 195)
 script = ExtResource("7_cr3tb")
-msgWriter = NodePath("../../../CanvasLayer/MessageWriter")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Background/secondfloor/Radio"]
@@ -135,6 +134,7 @@ player = NodePath("../../../Player")
 step = 3000
 
 [node name="Player" parent="." instance=ExtResource("1_wvub0")]
+process_mode = 0
 position = Vector2(0, 128)
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
@@ -144,6 +144,7 @@ script = ExtResource("9_71xqd")
 player = NodePath("../Player")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
 
 [node name="MessageWriter" type="PanelContainer" parent="CanvasLayer"]
 offset_left = 87.0
