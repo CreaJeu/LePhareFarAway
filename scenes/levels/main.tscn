@@ -12,13 +12,14 @@
 [ext_resource type="Texture2D" uid="uid://bgfnjsfqjhl3u" path="res://assets/sprites/objects/garde_manger.png" id="7_5ogwh"]
 [ext_resource type="Texture2D" uid="uid://dr04iic5kmfwf" path="res://assets/sprites/objects/radio_single.png" id="7_bnlo4"]
 [ext_resource type="Script" path="res://scripts/radio.gd" id="7_cr3tb"]
-[ext_resource type="Texture2D" uid="uid://cembq1866m042" path="res://icon.svg" id="7_rf417"]
 [ext_resource type="Script" path="res://scripts/read_more_button.gd" id="7_sarhe"]
 [ext_resource type="Script" path="res://scripts/keys.gd" id="7_twk72"]
+[ext_resource type="Texture2D" uid="uid://bffuo30gvdmir" path="res://assets/sprites/objects/table.png" id="8_rofi5"]
 [ext_resource type="Script" path="res://scripts/camera_2d.gd" id="9_71xqd"]
 [ext_resource type="PackedScene" path="res://scenes/prefabs/stairway_closed.tscn" id="9_g25y6"]
 [ext_resource type="Texture2D" uid="uid://bxhn57ims7nvq" path="res://assets/sprites/ui/journal.png" id="9_uw74q"]
 [ext_resource type="Script" path="res://scripts/journal_button.gd" id="10_dhrxt"]
+[ext_resource type="Texture2D" uid="uid://cm8422geuckv8" path="res://assets/sprites/objects/Cle.png" id="11_qg1d3"]
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("msgWriter")]
 script = ExtResource("1_d050v")
@@ -49,7 +50,7 @@ scale = Vector2(10.5, 10.5)
 texture = ExtResource("3_yonmt")
 
 [node name="Stairway1" parent="Background/firstfloor" node_paths=PackedStringArray("player") instance=ExtResource("4_y15gb")]
-position = Vector2(900, 35)
+position = Vector2(895, 27)
 player = NodePath("../../../Player")
 step = -3000
 
@@ -102,8 +103,13 @@ position = Vector2(-900, 35)
 player = NodePath("../../../Player")
 step = -3000
 
+[node name="Table" type="Sprite2D" parent="Background/secondfloor"]
+position = Vector2(-366, 161)
+scale = Vector2(6, 6)
+texture = ExtResource("8_rofi5")
+
 [node name="Radio" type="Node2D" parent="Background/secondfloor"]
-position = Vector2(-372, 195)
+position = Vector2(-370, 66)
 script = ExtResource("7_cr3tb")
 metadata/_edit_group_ = true
 
@@ -142,13 +148,20 @@ position = Vector2(-900, 35)
 player = NodePath("../../../Player")
 step = 3000
 
+[node name="Table" type="Sprite2D" parent="Background/thirdfloor"]
+position = Vector2(597, 162)
+scale = Vector2(6, 6)
+texture = ExtResource("8_rofi5")
+
 [node name="Keys" type="Node2D" parent="Background/thirdfloor"]
-position = Vector2(507, 182)
+position = Vector2(586, 59)
 script = ExtResource("7_twk72")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Background/thirdfloor/Keys"]
-texture = ExtResource("7_rf417")
+position = Vector2(1, 12)
+scale = Vector2(6, 6)
+texture = ExtResource("11_qg1d3")
 
 [node name="Interactable" parent="Background/thirdfloor/Keys" node_paths=PackedStringArray("parent") instance=ExtResource("5_lmybn")]
 parent = NodePath("../Sprite2D")
