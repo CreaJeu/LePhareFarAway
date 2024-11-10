@@ -12,9 +12,13 @@ func do_action(interaction_name: String):
 	if GameState.has_keys:
 		if is_open:
 			player.position.y += step
+			$AudioWalkingStairs.play()
+			
 		else:
 			$Sprite2DOpen.visible = true
 			$Sprite2DClose.visible = false
+			$AudioOpening.play()
 			is_open = true
 	else:
 		GameState.read_conversation(5)
+		$AudioLocked.play()

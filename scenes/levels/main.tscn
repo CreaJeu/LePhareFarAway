@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://fpyjp475piwv"]
+[gd_scene load_steps=24 format=3 uid="uid://fpyjp475piwv"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_d050v"]
 [ext_resource type="PackedScene" uid="uid://tuv2d44iv0ue" path="res://scenes/prefabs/player.tscn" id="1_wvub0"]
@@ -14,12 +14,15 @@
 [ext_resource type="Script" path="res://scripts/radio.gd" id="7_cr3tb"]
 [ext_resource type="Script" path="res://scripts/read_more_button.gd" id="7_sarhe"]
 [ext_resource type="Script" path="res://scripts/keys.gd" id="7_twk72"]
-[ext_resource type="Texture2D" uid="uid://bffuo30gvdmir" path="res://assets/sprites/objects/table.png" id="8_rofi5"]
+[ext_resource type="Texture2D" uid="uid://8di51t7bv4vq" path="res://assets/sprites/objects/table.png" id="8_rofi5"]
 [ext_resource type="Script" path="res://scripts/camera_2d.gd" id="9_71xqd"]
-[ext_resource type="PackedScene" path="res://scenes/prefabs/stairway_closed.tscn" id="9_g25y6"]
+[ext_resource type="PackedScene" uid="uid://beacbs7htxw2d" path="res://scenes/prefabs/stairway_closed.tscn" id="9_g25y6"]
 [ext_resource type="Texture2D" uid="uid://bxhn57ims7nvq" path="res://assets/sprites/ui/journal.png" id="9_uw74q"]
 [ext_resource type="Script" path="res://scripts/journal_button.gd" id="10_dhrxt"]
-[ext_resource type="Texture2D" uid="uid://cm8422geuckv8" path="res://assets/sprites/objects/Cle.png" id="11_qg1d3"]
+[ext_resource type="Texture2D" uid="uid://df53auqshcbet" path="res://assets/sprites/objects/Cle.png" id="11_qg1d3"]
+[ext_resource type="AudioStream" uid="uid://cyf3pu0twx46v" path="res://assets/sounds/sfx/keys.mp3" id="14_k4ee5"]
+[ext_resource type="Script" path="res://scripts/global_sounds.gd" id="16_0m4vb"]
+[ext_resource type="AudioStream" uid="uid://gicfy1wwycbm" path="res://assets/sounds/sfx/static.mp3" id="21_k1eoh"]
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("msgWriter")]
 script = ExtResource("1_d050v")
@@ -176,6 +179,12 @@ offset = Vector2(0, -128)
 script = ExtResource("9_71xqd")
 player = NodePath("../Player")
 
+[node name="GlobalSounds" type="Node2D" parent="."]
+script = ExtResource("16_0m4vb")
+
+[node name="PickupKeys" type="AudioStreamPlayer" parent="GlobalSounds"]
+stream = ExtResource("14_k4ee5")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3
 
@@ -207,6 +216,9 @@ offset_bottom = 95.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_a5bn7")
 script = ExtResource("7_sarhe")
+
+[node name="RadioStatic" type="AudioStreamPlayer" parent="CanvasLayer/MessageWriter"]
+stream = ExtResource("21_k1eoh")
 
 [node name="Carnet" type="Control" parent="CanvasLayer"]
 layout_mode = 3

@@ -8,3 +8,4 @@ func _ready() -> void:
 
 func do_action(interaction_name: String):
 	player.position.y += step
+	$AudioStreamPlayer.play()

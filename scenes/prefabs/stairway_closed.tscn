@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://b264uow22b5bt"]
+[gd_scene load_steps=8 format=3 uid="uid://beacbs7htxw2d"]
 
 [ext_resource type="Script" path="res://scripts/stairway_closed.gd" id="1_3h3t4"]
 [ext_resource type="Texture2D" uid="uid://bwfs0jov6whjo" path="res://assets/sprites/objects/door_and_escalier.png" id="2_esede"]
-[ext_resource type="Texture2D" uid="uid://ds1lj6mrvuboa" path="res://assets/sprites/objects/door_and_escalier_sauvegarde.png" id="3_57tku"]
+[ext_resource type="Texture2D" uid="uid://4bmfujb02pv8" path="res://assets/sprites/objects/door_and_escalier_sauvegarde.png" id="3_57tku"]
 [ext_resource type="PackedScene" uid="uid://ceidtf6p5gate" path="res://scenes/prefabs/interactable.tscn" id="3_ebsr1"]
+[ext_resource type="AudioStream" uid="uid://c1djev0gx4p4w" path="res://assets/sounds/sfx/locked_door.mp3" id="5_tykqs"]
+[ext_resource type="AudioStream" uid="uid://crq1aghiu6qu0" path="res://assets/sounds/sfx/walking_stairs.mp3" id="6_ol07l"]
+[ext_resource type="AudioStream" uid="uid://cbr0ipbxxixx2" path="res://assets/sounds/sfx/door_open.mp3" id="7_canhj"]
 
 [node name="StairwayClosed" type="Node2D"]
 script = ExtResource("1_3h3t4")
@@ -20,3 +23,12 @@ texture = ExtResource("3_57tku")
 
 [node name="Interactable" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("3_ebsr1")]
 parent = NodePath("../Sprite2DOpen")
+
+[node name="AudioLocked" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_tykqs")
+
+[node name="AudioWalkingStairs" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_ol07l")
+
+[node name="AudioOpening" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_canhj")

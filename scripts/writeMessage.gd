@@ -16,9 +16,14 @@ func write_dialog_line():
 	if current_conv_dialog < len(conversation):
 		var dlg = conversation[current_conv_dialog]
 		write(dlg["nom"] + " : " + dlg["text"])
+		if dlg["nom"] == "Gwenaël":
+			$RadioStatic.play()
+		else:
+			$RadioStatic.stop()
 	else:
 		visible = false
 		get_tree().paused = false
+		$RadioStatic.stop()
 
 
 func write_conversation(conv: Array):

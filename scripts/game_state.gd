@@ -7,6 +7,7 @@ var msgWriter: PanelContainer
 var has_keys: bool = false
 
 signal pause_game
+signal play_sound(name: String)
 
 func _ready():
 	var file: FileAccess = FileAccess.open("res://resources/data/dialogs.json", FileAccess.READ)
