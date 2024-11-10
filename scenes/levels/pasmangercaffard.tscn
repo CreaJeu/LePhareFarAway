@@ -1,13 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://cho04d3eh77c3"]
+[gd_scene load_steps=12 format=3 uid="uid://cho04d3eh77c3"]
 
 [ext_resource type="Texture2D" uid="uid://380kw1oyjurn" path="res://assets/sprites/objects/Background.png" id="1_b27ng"]
 [ext_resource type="Script" path="res://scripts/tetemninijeu.gd" id="1_r1gb2"]
 [ext_resource type="Texture2D" uid="uid://cm6uvhwf0vt8o" path="res://assets/sprites/objects/Fond_mini_jeu.png" id="2_qd7ep"]
 [ext_resource type="Texture2D" uid="uid://canbsty2jj0c0" path="res://assets/sprites/objects/Bouche_jeu_manger.png" id="2_xlvv7"]
 [ext_resource type="Script" path="res://scripts/spawner.gd" id="4_mjsgb"]
+[ext_resource type="Texture2D" uid="uid://nrpl2hqumb6i" path="res://assets/sprites/objects/Haricot.png" id="6_7yj10"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8yyk3"]
 size = Vector2(8.625, 25.25)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i2eqe"]
+radius = 40.0
 
 [sub_resource type="GDScript" id="GDScript_sbw66"]
 script/source = "extends Area2D
@@ -18,10 +22,10 @@ func _process(delta: float) -> void:
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uk3v0"]
-size = Vector2(1921, 36)
+size = Vector2(1607, 73)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tyjgc"]
-size = Vector2(102.5, 789)
+size = Vector2(102.5, 818.5)
 
 [node name="Pasmangercaffard" type="Node2D"]
 
@@ -35,10 +39,11 @@ position = Vector2(2.71841, 0.921218)
 scale = Vector2(1.81227, -1.53536)
 texture = ExtResource("2_qd7ep")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." node_paths=PackedStringArray("nb_beans_eaten_label")]
 position = Vector2(504, 584)
 scale = Vector2(2, 2)
 script = ExtResource("1_r1gb2")
+nb_beans_eaten_label = NodePath("../CanvasLayer/NbBeansEatenLabel")
 
 [node name="BoucheJeuManger" type="Sprite2D" parent="CharacterBody2D"]
 scale = Vector2(6, 9.28571)
@@ -52,6 +57,12 @@ shape = SubResource("RectangleShape2D_8yyk3")
 position = Vector2(181.5, 29.5)
 shape = SubResource("RectangleShape2D_8yyk3")
 
+[node name="MouthArea2D" type="Area2D" parent="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/MouthArea2D"]
+position = Vector2(87.5, 7)
+shape = SubResource("CircleShape2D_i2eqe")
+
 [node name="spawner" type="Node2D" parent="."]
 position = Vector2(600, 0)
 script = ExtResource("4_mjsgb")
@@ -63,13 +74,37 @@ position = Vector2(589, 694)
 script = SubResource("GDScript_sbw66")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Area2D"]
-position = Vector2(-268.5, 0)
+position = Vector2(8.5, 18.5)
 shape = SubResource("RectangleShape2D_uk3v0")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-1127, -413)
+position = Vector2(-753, -409.25)
 shape = SubResource("RectangleShape2D_tyjgc")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(745, -369)
+position = Vector2(715, -380)
 shape = SubResource("RectangleShape2D_tyjgc")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="NbBeansEatenLabel" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = 878.0
+offset_top = 37.0
+offset_right = 1125.0
+offset_bottom = 139.0
+theme_override_font_sizes/normal_font_size = 72
+text = "0 / 10"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_left = 801.0
+offset_top = 46.0
+offset_right = 843.0
+offset_bottom = 118.0
+texture = ExtResource("6_7yj10")
+
+[connection signal="body_entered" from="CharacterBody2D/MouthArea2D" to="CharacterBody2D" method="_on_mouth_area_2d_body_entered"]
+[connection signal="body_entered" from="StaticBody2D/Area2D" to="CharacterBody2D" method="_on_fallen"]
+[connection signal="timeout" from="Timer" to="spawner" method="_on_timer_timeout"]

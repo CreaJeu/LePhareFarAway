@@ -1,11 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://bk6vw5vw2f24p"]
+[gd_scene load_steps=4 format=3 uid="uid://btmn1bcshj2dj"]
 
-[ext_resource type="Texture2D" uid="uid://nrpl2hqumb6i" path="res://assets/sprites/objects/Haricot.png" id="1_e6jwq"]
+[ext_resource type="Texture2D" uid="uid://etxubg7gsv8y" path="res://assets/sprites/objects/gros_cafard.png" id="1_bqlf6"]
 
-[sub_resource type="GDScript" id="GDScript_em88c"]
+[sub_resource type="GDScript" id="GDScript_u6ajp"]
 script/source = "extends RigidBody2D
 
-var type_: String = \"bean\"
+var type_: String = \"cockroach\"
 "
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3m2or"]
@@ -13,11 +13,11 @@ radius = 23.0
 
 [node name="RigidBody2D" type="RigidBody2D"]
 mass = 0.001
-script = SubResource("GDScript_em88c")
+script = SubResource("GDScript_u6ajp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_3m2or")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
-texture = ExtResource("1_e6jwq")
+texture = ExtResource("1_bqlf6")
