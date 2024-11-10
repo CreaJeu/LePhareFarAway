@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var msgWriter: RichTextLabel
+@export var msgWriter: PanelContainer
 
 
 func _ready():

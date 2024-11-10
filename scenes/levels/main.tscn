@@ -8,12 +8,12 @@
 [ext_resource type="Texture2D" uid="uid://rd1os22xmhhj" path="res://assets/sprites/ui/cursor.png" id="6_a5bn7"]
 [ext_resource type="Script" path="res://scripts/read_more_button.gd" id="7_sarhe"]
 [ext_resource type="Script" path="res://scripts/camera_2d.gd" id="9_71xqd"]
-[ext_resource type="Texture2D" uid="uid://dgiy664dg5mbw" path="res://assets/sprites/ui/journal.png" id="9_uw74q"]
+[ext_resource type="Texture2D" uid="uid://bxhn57ims7nvq" path="res://assets/sprites/ui/journal.png" id="9_uw74q"]
 [ext_resource type="Script" path="res://scripts/journal_button.gd" id="10_dhrxt"]
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("msgWriter")]
 script = ExtResource("1_d050v")
-msgWriter = NodePath("CanvasLayer/RichTextLabel")
+msgWriter = NodePath("CanvasLayer/PanelContainer")
 
 [node name="Background" type="Node2D" parent="."]
 
@@ -116,22 +116,33 @@ player = NodePath("../Player")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+visible = false
 offset_left = 87.0
 offset_top = 494.0
 offset_right = 1087.0
 offset_bottom = 628.0
-theme_override_font_sizes/normal_font_size = 26
 script = ExtResource("5_4wyvk")
 
-[node name="ReadMoreButton" type="TextureRect" parent="CanvasLayer/RichTextLabel"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 26
+
+[node name="ReadMoreButton" type="TextureRect" parent="CanvasLayer/PanelContainer/MarginContainer/RichTextLabel"]
 visible = false
 layout_mode = 0
-offset_left = 944.0
-offset_top = 97.0
-offset_right = 1072.0
-offset_bottom = 225.0
-scale = Vector2(0.2, 0.2)
+offset_left = 928.0
+offset_top = 55.0
+offset_right = 968.0
+offset_bottom = 95.0
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_a5bn7")
 script = ExtResource("7_sarhe")
 
