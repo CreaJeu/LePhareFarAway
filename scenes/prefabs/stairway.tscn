@@ -13,7 +13,7 @@ position = Vector2(-95, 20)
 scale = Vector2(15, 15)
 texture = ExtResource("2_0su21")
 
-[node name="Interactable" parent="." instance=ExtResource("3_eykdx")]
-position = Vector2(3, 0)
-sizeX = 200.0
-sizeY = 200.0
+[node name="Interactable" parent="Sprite2D" node_paths=PackedStringArray("parent") instance=ExtResource("3_eykdx")]
+position = Vector2(6.53333, -1.33333)
+scale = Vector2(0.0666667, 0.0666667)
+parent = NodePath("..")

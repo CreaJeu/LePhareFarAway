@@ -136,27 +136,25 @@ texture = ExtResource("6_a5bn7")
 script = ExtResource("7_sarhe")
 
 [node name="Carnet" type="Control" parent="CanvasLayer"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
-offset_left = 193.0
-offset_top = -320.0
-offset_right = 468.0
-offset_bottom = -174.0
+offset_left = 869.0
+offset_top = 9.0
+offset_right = 1144.0
+offset_bottom = 155.0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Carnet"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 682.0
-offset_top = 325.0
-offset_right = 682.0
-offset_bottom = 325.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Mission 1 : soilhgjge
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Carnet"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Carnet/PanelContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "Mission 1 : soilhgjge grgsdfgfdsgfsg
 Mission 2 : seybiun"
+fit_content = true
 
 [node name="JournalButton" type="TextureButton" parent="CanvasLayer"]
 anchors_preset = 1
