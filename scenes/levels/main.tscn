@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://btfmokkvtfyrp"]
+[gd_scene load_steps=27 format=3 uid="uid://btfmokkvtfyrp"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_d050v"]
 [ext_resource type="PackedScene" uid="uid://tuv2d44iv0ue" path="res://scenes/prefabs/player.tscn" id="1_wvub0"]
@@ -14,12 +14,15 @@
 [ext_resource type="Script" path="res://scripts/radio.gd" id="7_cr3tb"]
 [ext_resource type="Script" path="res://scripts/read_more_button.gd" id="7_sarhe"]
 [ext_resource type="Script" path="res://scripts/keys.gd" id="7_twk72"]
+[ext_resource type="Texture2D" uid="uid://cembq1866m042" path="res://icon.svg" id="8_n1ui4"]
 [ext_resource type="Texture2D" uid="uid://bffuo30gvdmir" path="res://assets/sprites/objects/table.png" id="8_rofi5"]
+[ext_resource type="Script" path="res://scripts/gasoil_barrel.gd" id="8_uddix"]
 [ext_resource type="Script" path="res://scripts/camera_2d.gd" id="9_71xqd"]
 [ext_resource type="PackedScene" uid="uid://beacbs7htxw2d" path="res://scenes/prefabs/stairway_closed.tscn" id="9_g25y6"]
 [ext_resource type="Texture2D" uid="uid://bxhn57ims7nvq" path="res://assets/sprites/ui/journal.png" id="9_uw74q"]
 [ext_resource type="Script" path="res://scripts/journal_button.gd" id="10_dhrxt"]
 [ext_resource type="Texture2D" uid="uid://cm8422geuckv8" path="res://assets/sprites/objects/Cle.png" id="11_qg1d3"]
+[ext_resource type="Script" path="res://scripts/gasoil_lamp.gd" id="14_6vndg"]
 [ext_resource type="AudioStream" uid="uid://ys0qemx35r2v" path="res://assets/sounds/sfx/keys.mp3" id="14_k4ee5"]
 [ext_resource type="Script" path="res://scripts/global_sounds.gd" id="16_0m4vb"]
 [ext_resource type="AudioStream" uid="uid://bib8qoda4d26q" path="res://assets/sounds/sfx/static.mp3" id="21_k1eoh"]
@@ -74,6 +77,17 @@ position = Vector2(-807, 9)
 scale = Vector2(10, 10)
 texture = ExtResource("7_5ogwh")
 
+[node name="GasoilBarrel" type="Node2D" parent="Background/firstfloor"]
+position = Vector2(1541, 154)
+script = ExtResource("8_uddix")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/firstfloor/GasoilBarrel"]
+texture = ExtResource("8_n1ui4")
+
+[node name="Interactable" parent="Background/firstfloor/GasoilBarrel" node_paths=PackedStringArray("parent") instance=ExtResource("5_lmybn")]
+parent = NodePath("../Sprite2D")
+
 [node name="secondfloor" type="Node2D" parent="Background"]
 position = Vector2(0, -3000)
 
@@ -123,6 +137,25 @@ texture = ExtResource("7_bnlo4")
 
 [node name="Interactable" parent="Background/secondfloor/Radio" node_paths=PackedStringArray("parent") instance=ExtResource("5_lmybn")]
 parent = NodePath("../Sprite2D")
+
+[node name="GasoilLamp" type="Node2D" parent="Background/secondfloor"]
+position = Vector2(1736, 152)
+script = ExtResource("14_6vndg")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/secondfloor/GasoilLamp"]
+texture = ExtResource("8_n1ui4")
+
+[node name="Interactable" parent="Background/secondfloor/GasoilLamp" node_paths=PackedStringArray("parent") instance=ExtResource("5_lmybn")]
+parent = NodePath("../Sprite2D")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Background/secondfloor/GasoilLamp"]
+offset_left = 83.0
+offset_top = -110.0
+offset_right = 226.0
+offset_bottom = -66.0
+theme_override_font_sizes/normal_font_size = 28
+text = "0 / 100"
 
 [node name="thirdfloor" type="Node2D" parent="Background"]
 position = Vector2(0, -6000)
