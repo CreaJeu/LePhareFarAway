@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://fpyjp475piwv"]
+[gd_scene load_steps=11 format=3 uid="uid://fpyjp475piwv"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_d050v"]
 [ext_resource type="PackedScene" uid="uid://tuv2d44iv0ue" path="res://scenes/prefabs/player.tscn" id="1_wvub0"]
@@ -6,8 +6,23 @@
 [ext_resource type="PackedScene" uid="uid://b5uvlupwwli50" path="res://scenes/prefabs/stairway.tscn" id="4_y15gb"]
 [ext_resource type="Script" path="res://scripts/writeMessage.gd" id="5_4wyvk"]
 [ext_resource type="Texture2D" uid="uid://rd1os22xmhhj" path="res://assets/sprites/ui/cursor.png" id="6_a5bn7"]
+[ext_resource type="Texture2D" uid="uid://bthqfdt0jw6cg" path="res://assets/sprites/objects/valve.png" id="6_npfww"]
 [ext_resource type="Script" path="res://scripts/read_more_button.gd" id="7_sarhe"]
 [ext_resource type="Script" path="res://scripts/camera_2d.gd" id="9_71xqd"]
+
+[sub_resource type="GDScript" id="GDScript_wh5be"]
+script/source = "extends Control
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_released(\"open\"):
+		if self.visible == true:
+			self.visible = false
+		else:
+			self.visible = true
+
+func _on_texture_button_pressed() -> void:
+	self.visible = true
+"
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("msgWriter")]
 script = ExtResource("1_d050v")
@@ -37,6 +52,11 @@ position = Vector2(672, 0)
 scale = Vector2(10.5, 10.5)
 texture = ExtResource("3_yonmt")
 
+[node name="Stairway1" parent="Background/firstfloor" node_paths=PackedStringArray("player") instance=ExtResource("4_y15gb")]
+position = Vector2(900, 35)
+player = NodePath("../../../Player")
+step = -3000
+
 [node name="secondfloor" type="Node2D" parent="Background"]
 position = Vector2(0, -3000)
 
@@ -59,6 +79,16 @@ texture = ExtResource("3_yonmt")
 position = Vector2(672, 0)
 scale = Vector2(10.5, 10.5)
 texture = ExtResource("3_yonmt")
+
+[node name="Stairway2" parent="Background/secondfloor" node_paths=PackedStringArray("player") instance=ExtResource("4_y15gb")]
+position = Vector2(900, 35)
+player = NodePath("../../../Player")
+step = 3000
+
+[node name="Stairway3" parent="Background/secondfloor" node_paths=PackedStringArray("player") instance=ExtResource("4_y15gb")]
+position = Vector2(-900, 35)
+player = NodePath("../../../Player")
+step = -3000
 
 [node name="thirdfloor" type="Node2D" parent="Background"]
 position = Vector2(0, -6000)
@@ -83,24 +113,9 @@ position = Vector2(672, 0)
 scale = Vector2(10.5, 10.5)
 texture = ExtResource("3_yonmt")
 
-[node name="Stairway1" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_y15gb")]
-position = Vector2(900, 35)
-player = NodePath("../Player")
-step = -3000
-
-[node name="Stairway2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_y15gb")]
-position = Vector2(900, -2965)
-player = NodePath("../Player")
-step = 3000
-
-[node name="Stairway3" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_y15gb")]
-position = Vector2(-900, -2965)
-player = NodePath("../Player")
-step = -3000
-
-[node name="Stairway4" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_y15gb")]
-position = Vector2(-900, -5965)
-player = NodePath("../Player")
+[node name="Stairway4" parent="Background/thirdfloor" node_paths=PackedStringArray("player") instance=ExtResource("4_y15gb")]
+position = Vector2(-900, 35)
+player = NodePath("../../../Player")
 step = 3000
 
 [node name="Player" parent="." instance=ExtResource("1_wvub0")]
@@ -111,6 +126,39 @@ position = Vector2(0, 128)
 offset = Vector2(0, -128)
 script = ExtResource("9_71xqd")
 player = NodePath("../Player")
+
+[node name="UI" type="Control" parent="Camera2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Carnet" type="Control" parent="Camera2D/UI"]
+visible = false
+anchors_preset = 0
+offset_left = 193.0
+offset_top = -448.0
+offset_right = 468.0
+offset_bottom = -302.0
+script = SubResource("GDScript_wh5be")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Camera2D/UI/Carnet"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Mission 1 : soilhgjge
+Mission 2 : seybiun"
+
+[node name="TextureButton" type="TextureButton" parent="Camera2D/UI"]
+layout_mode = 0
+offset_left = 478.0
+offset_top = -442.0
+offset_right = 565.0
+offset_bottom = -355.0
+texture_normal = ExtResource("6_npfww")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -132,3 +180,5 @@ offset_bottom = 225.0
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("6_a5bn7")
 script = ExtResource("7_sarhe")
+
+[connection signal="pressed" from="Camera2D/UI/TextureButton" to="Camera2D/UI/Carnet" method="_on_texture_button_pressed"]
