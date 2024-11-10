@@ -1,4 +1,4 @@
-extends RichTextLabel
+extends PanelContainer
 
 var max_chars: int = 150
 var words: PackedStringArray = []
@@ -11,10 +11,11 @@ func write(msg: String):
 func write_line():
 	if current_word >= len(words):
 		words = []
-		text = ""
-		$ReadMoreButton.activate(false)
+		$MarginContainer/RichTextLabel.text = ""
+		$MarginContainer/RichTextLabel/ReadMoreButton.activate(false)
+		visible = false
 	else:
-		$ReadMoreButton.activate(true)
+		$MarginContainer/RichTextLabel/ReadMoreButton.activate(true)
 		var line: String = ""
 		while current_word < len(words):
 			if len(line) + len(words[current_word]) + 1 < max_chars:
@@ -23,7 +24,8 @@ func write_line():
 			else:
 				break
 			
-		text = line
+		visible = true
+		$MarginContainer/RichTextLabel.text = line
 
 func _process(delta):
 	if len(words) > 0 and Input.is_action_just_pressed("interact"):
