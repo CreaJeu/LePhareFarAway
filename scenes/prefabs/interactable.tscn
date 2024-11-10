@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ceidtf6p5gate"]
 
-[ext_resource type="Script" path="res://scripts/Interactable.gd" id="1_pukyx"]
+[ext_resource type="Script" path="res://scripts/interactable_objects/Interactable.gd" id="1_pukyx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xnx0g"]
 size = Vector2(0, 0)
@@ -12,6 +12,15 @@ script = ExtResource("1_pukyx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_xnx0g")
+
+[node name="Label" type="RichTextLabel" parent="."]
+z_index = 5
+custom_minimum_size = Vector2(120, 0)
+offset_right = 40.0
+offset_bottom = 40.0
+bbcode_enabled = true
+text = "\"E\" to interact"
+fit_content = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

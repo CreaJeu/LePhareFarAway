@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b5uvlupwwli50"]
 
-[ext_resource type="Script" path="res://scripts/stairway.gd" id="1_nuq5g"]
+[ext_resource type="Script" path="res://scripts/interactable_objects/stairway.gd" id="1_nuq5g"]
 [ext_resource type="Texture2D" uid="uid://bwfs0jov6whjo" path="res://assets/sprites/objects/door_and_escalier.png" id="2_0su21"]
 [ext_resource type="PackedScene" uid="uid://ceidtf6p5gate" path="res://scenes/prefabs/interactable.tscn" id="3_eykdx"]
 
@@ -12,7 +12,6 @@ metadata/_edit_group_ = true
 scale = Vector2(15, 15)
 texture = ExtResource("2_0su21")
 
-[node name="Interactable" parent="Sprite2D" node_paths=PackedStringArray("parent") instance=ExtResource("3_eykdx")]
-position = Vector2(6.53333, -1.33333)
-scale = Vector2(0.0666667, 0.0666667)
-parent = NodePath("..")
+[node name="Interactable" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("3_eykdx")]
+scale = Vector2(1, 1)
+parent = NodePath("../Sprite2D")

@@ -9,7 +9,15 @@ var playerInZone: bool = false
 @onready var collision: CollisionShape2D = $Area2D/CollisionShape2D
 
 func _ready():
-	collision.shape.size = parent.texture.get_size() * parent.scale
+	var shape: RectangleShape2D = RectangleShape2D.new()
+	shape.size = parent.texture.get_size() * parent.scale
+	collision.shape = shape
+	
+	# Place label on top of the sprite and center text
+	$Label.position.y -= ((parent.texture.get_size() * parent.scale).y / 2) + 30
+	$Label.position.x -= $Label.size.x / 2
+	$Label.visible = false
+
 
 func _process(delta):
 	if Input.is_action_just_pressed("interact") and playerInZone:
@@ -21,8 +29,10 @@ func _process(delta):
 func _on_area_2d_body_entered(body):
 	print("Entered interactable zone")
 	playerInZone = true
+	$Label.visible = true
 
 
 func _on_area_2d_body_exited(body):
 	print("Exited interactable zone")
 	playerInZone = false
+	$Label.visible = false
