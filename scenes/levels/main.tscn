@@ -232,10 +232,10 @@ script = ExtResource("5_4wyvk")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MessageWriter"]
 layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/MessageWriter/MarginContainer"]
 layout_mode = 2
@@ -265,10 +265,20 @@ offset_bottom = 155.0
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Carnet"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -213.0
+offset_top = 3.0
+offset_right = 199.0
+offset_bottom = 135.0
+metadata/_edit_group_ = true
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Carnet/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Carnet/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Carnet/PanelContainer/MarginContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 bbcode_enabled = true

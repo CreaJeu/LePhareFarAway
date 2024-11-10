@@ -12,4 +12,5 @@ func _ready():
 
 
 func loadLevel():
+	GameState.add_mission(1)
 	GameState.updateMissionsPanelContainer()

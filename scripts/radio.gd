@@ -7,3 +7,5 @@ func _ready() -> void:
 func do_action(interaction_name: String):
 	print("read conversation")
 	GameState.read_conversation(1)
+	GameState.remove_mission(1)
+	GameState.updateMissionsPanelContainer()
