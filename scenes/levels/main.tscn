@@ -14,10 +14,10 @@
 [ext_resource type="Script" path="res://scripts/radio.gd" id="7_cr3tb"]
 [ext_resource type="Script" path="res://scripts/read_more_button.gd" id="7_sarhe"]
 [ext_resource type="Script" path="res://scripts/keys.gd" id="7_twk72"]
-[ext_resource type="Texture2D" uid="uid://cembq1866m042" path="res://icon.svg" id="8_n1ui4"]
 [ext_resource type="Texture2D" uid="uid://bffuo30gvdmir" path="res://assets/sprites/objects/table.png" id="8_rofi5"]
 [ext_resource type="Script" path="res://scripts/gasoil_barrel.gd" id="8_uddix"]
 [ext_resource type="Script" path="res://scripts/camera_2d.gd" id="9_71xqd"]
+[ext_resource type="Texture2D" uid="uid://clf5d0giu1h01" path="res://assets/sprites/objects/barrel.png" id="9_af2vm"]
 [ext_resource type="PackedScene" uid="uid://beacbs7htxw2d" path="res://scenes/prefabs/stairway_closed.tscn" id="9_g25y6"]
 [ext_resource type="Texture2D" uid="uid://bxhn57ims7nvq" path="res://assets/sprites/ui/journal.png" id="9_uw74q"]
 [ext_resource type="Script" path="res://scripts/journal_button.gd" id="10_dhrxt"]
@@ -90,7 +90,8 @@ script = ExtResource("8_uddix")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Background/firstfloor/GasoilBarrel"]
-texture = ExtResource("8_n1ui4")
+scale = Vector2(8, 8)
+texture = ExtResource("9_af2vm")
 
 [node name="Interactable" parent="Background/firstfloor/GasoilBarrel" node_paths=PackedStringArray("parent") instance=ExtResource("5_lmybn")]
 parent = NodePath("../Sprite2D")
