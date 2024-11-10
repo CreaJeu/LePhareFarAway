@@ -84,22 +84,22 @@ scale = Vector2(10.5, 10.5)
 texture = ExtResource("3_yonmt")
 
 [node name="Stairway1" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_y15gb")]
-position = Vector2(919, 0)
+position = Vector2(900, 35)
 player = NodePath("../Player")
 step = -3000
 
 [node name="Stairway2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_y15gb")]
-position = Vector2(940, -2970)
+position = Vector2(900, -2965)
 player = NodePath("../Player")
 step = 3000
 
 [node name="Stairway3" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_y15gb")]
-position = Vector2(-1032, -2913)
+position = Vector2(-900, -2965)
 player = NodePath("../Player")
 step = -3000
 
 [node name="Stairway4" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_y15gb")]
-position = Vector2(-1032, -6001)
+position = Vector2(-900, -5965)
 player = NodePath("../Player")
 step = 3000
 
