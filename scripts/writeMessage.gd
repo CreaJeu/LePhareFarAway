@@ -18,6 +18,7 @@ func write_dialog_line():
 		write(dlg["nom"] + " : " + dlg["text"])
 	else:
 		visible = false
+		get_tree().paused = false
 
 
 func write_conversation(conv: Array):

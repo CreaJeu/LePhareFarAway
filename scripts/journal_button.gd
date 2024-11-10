@@ -12,10 +12,12 @@ func _ready() -> void:
 
 func _on_mouse_entered() -> void:
 	var tween: Tween = get_tree().create_tween()
+	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS) # To keep playing when paused
 	tween.tween_property(self, "scale", original_scale + Vector2(0.1, 0.1), 0.1) # Grow image scale in 0.1 seconds
  
 func _on_mouse_exited() -> void:
 	var tween: Tween = get_tree().create_tween()
+	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS) # To keep playing when paused
 	tween.tween_property(self, "scale", original_scale, 0.1) # go back to original scale in 0.1 seconds
 
 
