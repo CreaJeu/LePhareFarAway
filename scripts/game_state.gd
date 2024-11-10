@@ -5,7 +5,7 @@ var dialogs: Array = []
 var msgWriter: PanelContainer
 var missionsPanelContainer: PanelContainer
 var has_keys: bool = false
-var has_barrel: bool = true
+var has_barrel: bool = false
 var is_gasoil_lamp_filled: bool = false
 var missions: Array = []
 var all_missions: Array = []

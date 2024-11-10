@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://380kw1oyjurn" path="res://assets/sprites/objects/Background.png" id="1_b27ng"]
 [ext_resource type="Script" path="res://scripts/tetemninijeu.gd" id="1_r1gb2"]
-[ext_resource type="Texture2D" uid="uid://dacvae14fvqws" path="res://assets/sprites/objects/Fond_mini_jeu.png" id="2_qd7ep"]
-[ext_resource type="Texture2D" uid="uid://ewgkmjkcbamw" path="res://assets/sprites/objects/Bouche_jeu_manger.png" id="2_xlvv7"]
+[ext_resource type="Texture2D" uid="uid://cm6uvhwf0vt8o" path="res://assets/sprites/objects/Fond_mini_jeu.png" id="2_qd7ep"]
+[ext_resource type="Texture2D" uid="uid://canbsty2jj0c0" path="res://assets/sprites/objects/Bouche_jeu_manger.png" id="2_xlvv7"]
 [ext_resource type="Script" path="res://scripts/spawner.gd" id="4_mjsgb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8yyk3"]
