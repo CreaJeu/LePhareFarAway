@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://fpyjp475piwv"]
+[gd_scene load_steps=31 format=3 uid="uid://fpyjp475piwv"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_d050v"]
 [ext_resource type="PackedScene" uid="uid://tuv2d44iv0ue" path="res://scenes/prefabs/player.tscn" id="1_wvub0"]
@@ -15,15 +15,25 @@
 [ext_resource type="Script" path="res://scripts/read_more_button.gd" id="7_sarhe"]
 [ext_resource type="Script" path="res://scripts/keys.gd" id="7_twk72"]
 [ext_resource type="Texture2D" uid="uid://8di51t7bv4vq" path="res://assets/sprites/objects/table.png" id="8_rofi5"]
+[ext_resource type="Script" path="res://scripts/gasoil_barrel.gd" id="8_uddix"]
 [ext_resource type="Script" path="res://scripts/camera_2d.gd" id="9_71xqd"]
+[ext_resource type="Texture2D" uid="uid://dqjvi30ni0fo5" path="res://assets/sprites/objects/barrel.png" id="9_af2vm"]
 [ext_resource type="PackedScene" uid="uid://beacbs7htxw2d" path="res://scenes/prefabs/stairway_closed.tscn" id="9_g25y6"]
 [ext_resource type="Texture2D" uid="uid://bxhn57ims7nvq" path="res://assets/sprites/ui/journal.png" id="9_uw74q"]
 [ext_resource type="Script" path="res://scripts/journal_button.gd" id="10_dhrxt"]
 [ext_resource type="Texture2D" uid="uid://df53auqshcbet" path="res://assets/sprites/objects/Cle.png" id="11_qg1d3"]
+[ext_resource type="Script" path="res://scripts/gasoil_lamp.gd" id="14_6vndg"]
 [ext_resource type="AudioStream" uid="uid://cyf3pu0twx46v" path="res://assets/sounds/sfx/keys.mp3" id="14_k4ee5"]
+[ext_resource type="Texture2D" uid="uid://dhe2etqopvgal" path="res://assets/sprites/objects/entonnoir.png" id="15_yirb7"]
 [ext_resource type="Script" path="res://scripts/global_sounds.gd" id="16_0m4vb"]
 [ext_resource type="AudioStream" uid="uid://dgupjsru1017u" path="res://assets/sounds/music/ambient-dream.mp3" id="18_lm5bh"]
 [ext_resource type="AudioStream" uid="uid://gicfy1wwycbm" path="res://assets/sounds/sfx/static.mp3" id="21_k1eoh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hbojd"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1tiwf"]
+bg_color = Color(1, 0, 0, 1)
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("msgWriter", "missionsPanelContainer")]
 script = ExtResource("1_d050v")
@@ -55,7 +65,7 @@ scale = Vector2(10.5, 10.5)
 texture = ExtResource("3_yonmt")
 
 [node name="Stairway1" parent="Background/firstfloor" node_paths=PackedStringArray("player") instance=ExtResource("4_y15gb")]
-position = Vector2(892, -27)
+position = Vector2(923, -22)
 player = NodePath("../../../Player")
 step = -3000
 
@@ -74,6 +84,18 @@ parent = NodePath("../Sprite2D")
 position = Vector2(-807, 9)
 scale = Vector2(10, 10)
 texture = ExtResource("7_5ogwh")
+
+[node name="GasoilBarrel" type="Node2D" parent="Background/firstfloor"]
+position = Vector2(1541, 154)
+script = ExtResource("8_uddix")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/firstfloor/GasoilBarrel"]
+scale = Vector2(8, 8)
+texture = ExtResource("9_af2vm")
+
+[node name="Interactable" parent="Background/firstfloor/GasoilBarrel" node_paths=PackedStringArray("parent") instance=ExtResource("5_lmybn")]
+parent = NodePath("../Sprite2D")
 
 [node name="secondfloor" type="Node2D" parent="Background"]
 position = Vector2(0, -3000)
@@ -99,14 +121,14 @@ scale = Vector2(10.5, 10.5)
 texture = ExtResource("3_yonmt")
 
 [node name="StairwayClosed" parent="Background/secondfloor" node_paths=PackedStringArray("player") instance=ExtResource("9_g25y6")]
-position = Vector2(884, -27)
+position = Vector2(916, -26)
 player = NodePath("../../../Player")
-step = 3010
+step = 3000
 
 [node name="Stairway3" parent="Background/secondfloor" node_paths=PackedStringArray("player") instance=ExtResource("4_y15gb")]
-position = Vector2(-910, -7)
+position = Vector2(-924, -3)
 player = NodePath("../../../Player")
-step = -2930
+step = -3000
 
 [node name="Table" type="Sprite2D" parent="Background/secondfloor"]
 position = Vector2(-366, 161)
@@ -124,6 +146,29 @@ texture = ExtResource("7_bnlo4")
 
 [node name="Interactable" parent="Background/secondfloor/Radio" node_paths=PackedStringArray("parent") instance=ExtResource("5_lmybn")]
 parent = NodePath("../Sprite2D")
+
+[node name="GasoilLamp" type="Node2D" parent="Background/secondfloor"]
+position = Vector2(1787, 126)
+script = ExtResource("14_6vndg")
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/secondfloor/GasoilLamp"]
+position = Vector2(54, 40)
+scale = Vector2(8, 8)
+texture = ExtResource("15_yirb7")
+
+[node name="Interactable" parent="Background/secondfloor/GasoilLamp" node_paths=PackedStringArray("parent") instance=ExtResource("5_lmybn")]
+texture_filter = 1
+parent = NodePath("../Sprite2D")
+
+[node name="ProgressBar" type="ProgressBar" parent="Background/secondfloor/GasoilLamp"]
+offset_left = 136.0
+offset_top = -51.0
+offset_right = 178.0
+offset_bottom = 114.0
+theme_override_styles/background = SubResource("StyleBoxFlat_hbojd")
+theme_override_styles/fill = SubResource("StyleBoxFlat_1tiwf")
+fill_mode = 3
+show_percentage = false
 
 [node name="thirdfloor" type="Node2D" parent="Background"]
 position = Vector2(0, -6000)
@@ -149,7 +194,7 @@ scale = Vector2(10.5, 10.5)
 texture = ExtResource("3_yonmt")
 
 [node name="Stairway4" parent="Background/thirdfloor" node_paths=PackedStringArray("player") instance=ExtResource("4_y15gb")]
-position = Vector2(-897, -4)
+position = Vector2(-908, 4)
 player = NodePath("../../../Player")
 step = 3000
 
@@ -207,10 +252,10 @@ script = ExtResource("5_4wyvk")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MessageWriter"]
 layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/MessageWriter/MarginContainer"]
 layout_mode = 2
@@ -240,11 +285,18 @@ offset_bottom = 155.0
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Carnet"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -213.0
+offset_top = 3.0
+offset_right = 199.0
+offset_bottom = 135.0
+metadata/_edit_group_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Carnet/PanelContainer"]
 layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Carnet/PanelContainer/MarginContainer"]
 custom_minimum_size = Vector2(200, 0)
@@ -266,26 +318,3 @@ grow_horizontal = 0
 scale = Vector2(2, 2)
 texture_normal = ExtResource("9_uw74q")
 script = ExtResource("10_dhrxt")
-
-[node name="AcquiredItems" type="Control" parent="CanvasLayer"]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/AcquiredItems"]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 510.0
-offset_bottom = 70.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/AcquiredItems/PanelContainer"]
-layout_mode = 2
-
-[node name="Key" type="TextureRect" parent="CanvasLayer/AcquiredItems/PanelContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("11_qg1d3")
-stretch_mode = 5
