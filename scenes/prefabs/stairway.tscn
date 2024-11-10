@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5uvlupwwli50"]
+[gd_scene load_steps=5 format=3 uid="uid://b5uvlupwwli50"]
 
 [ext_resource type="Script" path="res://scripts/interactable_objects/stairway.gd" id="1_nuq5g"]
 [ext_resource type="Texture2D" uid="uid://bwfs0jov6whjo" path="res://assets/sprites/objects/door_and_escalier.png" id="2_0su21"]
 [ext_resource type="PackedScene" uid="uid://ceidtf6p5gate" path="res://scenes/prefabs/interactable.tscn" id="3_eykdx"]
+[ext_resource type="AudioStream" uid="uid://crq1aghiu6qu0" path="res://assets/sounds/sfx/walking_stairs.mp3" id="4_0xsy6"]
 
 [node name="Stairway1" type="Node2D"]
 script = ExtResource("1_nuq5g")
@@ -14,3 +15,7 @@ texture = ExtResource("2_0su21")
 
 [node name="Interactable" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("3_eykdx")]
 parent = NodePath("../Sprite2D")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_0xsy6")
+mix_target = 2

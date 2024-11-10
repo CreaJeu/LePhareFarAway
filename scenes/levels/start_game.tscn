@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://di1llh7hw2ld6"]
+
+[ext_resource type="Script" path="res://scripts/start_game.gd" id="1_f81c0"]
+[ext_resource type="Script" path="res://scripts/writeMessage.gd" id="1_xdx75"]
+[ext_resource type="Texture2D" uid="uid://rd1os22xmhhj" path="res://assets/sprites/ui/cursor.png" id="2_aio1f"]
+[ext_resource type="Script" path="res://scripts/read_more_button.gd" id="3_bp4j2"]
+[ext_resource type="AudioStream" uid="uid://bib8qoda4d26q" path="res://assets/sounds/sfx/static.mp3" id="5_e3uxt"]
+
+[node name="StartGame" type="Node2D" node_paths=PackedStringArray("msgWriter")]
+script = ExtResource("1_f81c0")
+msgWriter = NodePath("CanvasLayer/MessageWriter")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="MessageWriter" type="PanelContainer" parent="CanvasLayer"]
+offset_left = 87.0
+offset_top = 494.0
+offset_right = 1087.0
+offset_bottom = 628.0
+script = ExtResource("1_xdx75")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MessageWriter"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/MessageWriter/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 26
+
+[node name="ReadMoreButton" type="TextureRect" parent="CanvasLayer/MessageWriter/MarginContainer/RichTextLabel"]
+visible = false
+layout_mode = 0
+offset_left = 928.0
+offset_top = 55.0
+offset_right = 968.0
+offset_bottom = 95.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_aio1f")
+script = ExtResource("3_bp4j2")
+
+[node name="RadioStatic" type="AudioStreamPlayer" parent="CanvasLayer/MessageWriter"]
+stream = ExtResource("5_e3uxt")

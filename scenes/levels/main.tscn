@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://fpyjp475piwv"]
+[gd_scene load_steps=27 format=3 uid="uid://btfmokkvtfyrp"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_d050v"]
 [ext_resource type="PackedScene" uid="uid://tuv2d44iv0ue" path="res://scenes/prefabs/player.tscn" id="1_wvub0"]
@@ -9,21 +9,28 @@
 [ext_resource type="Script" path="res://scripts/writeMessage.gd" id="5_4wyvk"]
 [ext_resource type="PackedScene" uid="uid://ceidtf6p5gate" path="res://scenes/prefabs/interactable.tscn" id="5_lmybn"]
 [ext_resource type="Texture2D" uid="uid://rd1os22xmhhj" path="res://assets/sprites/ui/cursor.png" id="6_a5bn7"]
-[ext_resource type="Texture2D" uid="uid://bgfnjsfqjhl3u" path="res://assets/sprites/objects/garde_manger.png" id="7_5ogwh"]
+[ext_resource type="Texture2D" uid="uid://cyy7hdygw6wfk" path="res://assets/sprites/objects/garde_manger.png" id="7_5ogwh"]
 [ext_resource type="Texture2D" uid="uid://dr04iic5kmfwf" path="res://assets/sprites/objects/radio_single.png" id="7_bnlo4"]
 [ext_resource type="Script" path="res://scripts/radio.gd" id="7_cr3tb"]
 [ext_resource type="Script" path="res://scripts/read_more_button.gd" id="7_sarhe"]
 [ext_resource type="Script" path="res://scripts/keys.gd" id="7_twk72"]
+[ext_resource type="Texture2D" uid="uid://cembq1866m042" path="res://icon.svg" id="8_n1ui4"]
 [ext_resource type="Texture2D" uid="uid://bffuo30gvdmir" path="res://assets/sprites/objects/table.png" id="8_rofi5"]
+[ext_resource type="Script" path="res://scripts/gasoil_barrel.gd" id="8_uddix"]
 [ext_resource type="Script" path="res://scripts/camera_2d.gd" id="9_71xqd"]
-[ext_resource type="PackedScene" path="res://scenes/prefabs/stairway_closed.tscn" id="9_g25y6"]
+[ext_resource type="PackedScene" uid="uid://beacbs7htxw2d" path="res://scenes/prefabs/stairway_closed.tscn" id="9_g25y6"]
 [ext_resource type="Texture2D" uid="uid://bxhn57ims7nvq" path="res://assets/sprites/ui/journal.png" id="9_uw74q"]
 [ext_resource type="Script" path="res://scripts/journal_button.gd" id="10_dhrxt"]
 [ext_resource type="Texture2D" uid="uid://cm8422geuckv8" path="res://assets/sprites/objects/Cle.png" id="11_qg1d3"]
+[ext_resource type="Script" path="res://scripts/gasoil_lamp.gd" id="14_6vndg"]
+[ext_resource type="AudioStream" uid="uid://ys0qemx35r2v" path="res://assets/sounds/sfx/keys.mp3" id="14_k4ee5"]
+[ext_resource type="Script" path="res://scripts/global_sounds.gd" id="16_0m4vb"]
+[ext_resource type="AudioStream" uid="uid://bib8qoda4d26q" path="res://assets/sounds/sfx/static.mp3" id="21_k1eoh"]
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("msgWriter")]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("msgWriter", "missionsPanelContainer")]
 script = ExtResource("1_d050v")
 msgWriter = NodePath("CanvasLayer/MessageWriter")
+missionsPanelContainer = NodePath("CanvasLayer/Carnet/PanelContainer")
 
 [node name="Background" type="Node2D" parent="."]
 
@@ -69,6 +76,17 @@ parent = NodePath("../Sprite2D")
 position = Vector2(-807, 9)
 scale = Vector2(10, 10)
 texture = ExtResource("7_5ogwh")
+
+[node name="GasoilBarrel" type="Node2D" parent="Background/firstfloor"]
+position = Vector2(1541, 154)
+script = ExtResource("8_uddix")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/firstfloor/GasoilBarrel"]
+texture = ExtResource("8_n1ui4")
+
+[node name="Interactable" parent="Background/firstfloor/GasoilBarrel" node_paths=PackedStringArray("parent") instance=ExtResource("5_lmybn")]
+parent = NodePath("../Sprite2D")
 
 [node name="secondfloor" type="Node2D" parent="Background"]
 position = Vector2(0, -3000)
@@ -119,6 +137,25 @@ texture = ExtResource("7_bnlo4")
 
 [node name="Interactable" parent="Background/secondfloor/Radio" node_paths=PackedStringArray("parent") instance=ExtResource("5_lmybn")]
 parent = NodePath("../Sprite2D")
+
+[node name="GasoilLamp" type="Node2D" parent="Background/secondfloor"]
+position = Vector2(1736, 152)
+script = ExtResource("14_6vndg")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/secondfloor/GasoilLamp"]
+texture = ExtResource("8_n1ui4")
+
+[node name="Interactable" parent="Background/secondfloor/GasoilLamp" node_paths=PackedStringArray("parent") instance=ExtResource("5_lmybn")]
+parent = NodePath("../Sprite2D")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Background/secondfloor/GasoilLamp"]
+offset_left = 83.0
+offset_top = -110.0
+offset_right = 226.0
+offset_bottom = -66.0
+theme_override_font_sizes/normal_font_size = 28
+text = "0 / 100"
 
 [node name="thirdfloor" type="Node2D" parent="Background"]
 position = Vector2(0, -6000)
@@ -176,10 +213,17 @@ offset = Vector2(0, -128)
 script = ExtResource("9_71xqd")
 player = NodePath("../Player")
 
+[node name="GlobalSounds" type="Node2D" parent="."]
+script = ExtResource("16_0m4vb")
+
+[node name="PickupKeys" type="AudioStreamPlayer" parent="GlobalSounds"]
+stream = ExtResource("14_k4ee5")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3
 
 [node name="MessageWriter" type="PanelContainer" parent="CanvasLayer"]
+visible = false
 offset_left = 87.0
 offset_top = 494.0
 offset_right = 1087.0
@@ -188,10 +232,10 @@ script = ExtResource("5_4wyvk")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MessageWriter"]
 layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/MessageWriter/MarginContainer"]
 layout_mode = 2
@@ -208,6 +252,9 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_a5bn7")
 script = ExtResource("7_sarhe")
 
+[node name="RadioStatic" type="AudioStreamPlayer" parent="CanvasLayer/MessageWriter"]
+stream = ExtResource("21_k1eoh")
+
 [node name="Carnet" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 0
@@ -218,10 +265,20 @@ offset_bottom = 155.0
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Carnet"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -213.0
+offset_top = 3.0
+offset_right = 199.0
+offset_bottom = 135.0
+metadata/_edit_group_ = true
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Carnet/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Carnet/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Carnet/PanelContainer/MarginContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 bbcode_enabled = true

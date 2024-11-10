@@ -250,5 +250,25 @@
 			"text": "La porte est fermée ! Trouvez les clefs pour ouvrir la porte."
 		}
 	]
+  },
+  {
+	"id": 6,
+	"conversation": [
+		{
+			"id": 1,
+			"nom": "Lampe à huile",
+			"text": "Remplissez la lampe à huile en maintenant la barre <Espace>"
+		}
+	]
+  },
+  {
+	"id": 7,
+	"conversation": [
+		{
+			"id": 1,
+			"nom": "Lampe à huile",
+			"text": "Récupérez le baril de pétrôle pour remplir la lampe à huile."
+		}
+	]
   }
 ]

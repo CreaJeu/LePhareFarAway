@@ -4,7 +4,7 @@
 script/source = "extends Button
 
 func _on_pressed():
-	get_tree().change_scene_to_file(\"res://scenes/levels/main.tscn\")
+	get_tree().change_scene_to_file(\"res://scenes/levels/start_game.tscn\")
 "
 
 [sub_resource type="GDScript" id="GDScript_q3ovt"]
