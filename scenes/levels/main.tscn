@@ -1,90 +1,116 @@
-[gd_scene load_steps=10 format=3 uid="uid://fpyjp475piwv"]
+[gd_scene load_steps=9 format=3 uid="uid://fpyjp475piwv"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_d050v"]
 [ext_resource type="PackedScene" uid="uid://tuv2d44iv0ue" path="res://scenes/prefabs/player.tscn" id="1_wvub0"]
-[ext_resource type="PackedScene" uid="uid://ceidtf6p5gate" path="res://scenes/prefabs/interactable.tscn" id="2_kfq6f"]
 [ext_resource type="Texture2D" uid="uid://dk26by5bk2kp5" path="res://assets/sprites/tileset/stonetile_background.png" id="3_yonmt"]
 [ext_resource type="PackedScene" uid="uid://b5uvlupwwli50" path="res://scenes/prefabs/stairway.tscn" id="4_y15gb"]
 [ext_resource type="Script" path="res://scripts/writeMessage.gd" id="5_4wyvk"]
 [ext_resource type="Texture2D" uid="uid://rd1os22xmhhj" path="res://assets/sprites/ui/cursor.png" id="6_a5bn7"]
 [ext_resource type="Script" path="res://scripts/read_more_button.gd" id="7_sarhe"]
-
-[sub_resource type="GDScript" id="GDScript_ph7y7"]
-script/source = "extends Node2D
-
-
-func do_action():
-	print(\"AAAAAAAA\")
-"
+[ext_resource type="Script" path="res://scripts/camera_2d.gd" id="9_71xqd"]
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("msgWriter")]
 script = ExtResource("1_d050v")
 msgWriter = NodePath("CanvasLayer/RichTextLabel")
 
-[node name="ObjetTest" type="Node2D" parent="."]
-position = Vector2(-200, 0)
-script = SubResource("GDScript_ph7y7")
+[node name="Background" type="Node2D" parent="."]
 
-[node name="Interactable" parent="ObjetTest" instance=ExtResource("2_kfq6f")]
-sizeX = 35.0
-sizeY = 87.0
+[node name="firstfloor" type="Node2D" parent="Background"]
 
-[node name="StonetileBackground" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(-640, 0)
-scale = Vector2(10, 10)
+[node name="StonetileBackground" type="Sprite2D" parent="Background/firstfloor"]
+position = Vector2(-672, 0)
+scale = Vector2(10.5, 10.5)
 texture = ExtResource("3_yonmt")
 
-[node name="StonetileBackground2" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(640, 0)
-scale = Vector2(10, 10)
+[node name="StonetileBackground3" type="Sprite2D" parent="Background/firstfloor"]
+position = Vector2(-2016, 0)
+scale = Vector2(10.5, 10.5)
 texture = ExtResource("3_yonmt")
 
-[node name="StonetileBackground3" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(-640, -800)
-scale = Vector2(10, 10)
+[node name="StonetileBackground4" type="Sprite2D" parent="Background/firstfloor"]
+position = Vector2(2016, 0)
+scale = Vector2(10.5, 10.5)
 texture = ExtResource("3_yonmt")
 
-[node name="StonetileBackground4" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(640, -800)
-scale = Vector2(10, 10)
+[node name="StonetileBackground2" type="Sprite2D" parent="Background/firstfloor"]
+position = Vector2(672, 0)
+scale = Vector2(10.5, 10.5)
 texture = ExtResource("3_yonmt")
 
-[node name="StonetileBackground5" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(-640, -1600)
-scale = Vector2(10, 10)
+[node name="secondfloor" type="Node2D" parent="Background"]
+position = Vector2(0, -3000)
+
+[node name="StonetileBackground" type="Sprite2D" parent="Background/secondfloor"]
+position = Vector2(-672, 0)
+scale = Vector2(10.5, 10.5)
 texture = ExtResource("3_yonmt")
 
-[node name="StonetileBackground6" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(640, -1600)
-scale = Vector2(10, 10)
+[node name="StonetileBackground3" type="Sprite2D" parent="Background/secondfloor"]
+position = Vector2(-2016, 0)
+scale = Vector2(10.5, 10.5)
 texture = ExtResource("3_yonmt")
 
-[node name="Player" parent="." instance=ExtResource("1_wvub0")]
-is_limited = false
+[node name="StonetileBackground4" type="Sprite2D" parent="Background/secondfloor"]
+position = Vector2(2016, 0)
+scale = Vector2(10.5, 10.5)
+texture = ExtResource("3_yonmt")
+
+[node name="StonetileBackground2" type="Sprite2D" parent="Background/secondfloor"]
+position = Vector2(672, 0)
+scale = Vector2(10.5, 10.5)
+texture = ExtResource("3_yonmt")
+
+[node name="thirdfloor" type="Node2D" parent="Background"]
+position = Vector2(0, -6000)
+
+[node name="StonetileBackground" type="Sprite2D" parent="Background/thirdfloor"]
+position = Vector2(-672, 0)
+scale = Vector2(10.5, 10.5)
+texture = ExtResource("3_yonmt")
+
+[node name="StonetileBackground3" type="Sprite2D" parent="Background/thirdfloor"]
+position = Vector2(-2016, 0)
+scale = Vector2(10.5, 10.5)
+texture = ExtResource("3_yonmt")
+
+[node name="StonetileBackground4" type="Sprite2D" parent="Background/thirdfloor"]
+position = Vector2(2016, 0)
+scale = Vector2(10.5, 10.5)
+texture = ExtResource("3_yonmt")
+
+[node name="StonetileBackground2" type="Sprite2D" parent="Background/thirdfloor"]
+position = Vector2(672, 0)
+scale = Vector2(10.5, 10.5)
+texture = ExtResource("3_yonmt")
 
 [node name="Stairway1" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_y15gb")]
 position = Vector2(919, 0)
 player = NodePath("../Player")
+step = -3000
 
 [node name="Stairway2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_y15gb")]
-position = Vector2(940, -809)
+position = Vector2(940, -2970)
 player = NodePath("../Player")
-step = 750
+step = 3000
 
 [node name="Stairway3" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_y15gb")]
-position = Vector2(-1032, -809)
+position = Vector2(-1032, -2913)
 player = NodePath("../Player")
+step = -3000
 
 [node name="Stairway4" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_y15gb")]
-position = Vector2(-1032, -1600)
+position = Vector2(-1032, -6001)
 player = NodePath("../Player")
-step = 750
+step = 3000
+
+[node name="Player" parent="." instance=ExtResource("1_wvub0")]
+position = Vector2(0, 128)
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
+position = Vector2(0, 128)
+offset = Vector2(0, -128)
+script = ExtResource("9_71xqd")
+player = NodePath("../Player")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

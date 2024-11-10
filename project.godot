@@ -30,6 +30,7 @@ project/assembly_name="le phare far away"
 [file_customization]
 
 folder_colors={
+"res://addons/": "gray",
 "res://assets/": "pink",
 "res://resources/": "purple",
 "res://scenes/": "blue",

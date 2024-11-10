@@ -1,16 +1,16 @@
 extends CharacterBody2D
 
-const SPEED = 1000.0
+const SPEED = 500.0
 
 @export var is_limited := true
 @onready var  _animation_player := $WorldModel/AnimatedSprite2D
 
 func _process(delta):
 	if is_limited:
-		if self.position.x > 640:
-			self.position.x = -640
-		if self.position.x < -640:
-			self.position.x = 640
+		if self.position.x > 2016:
+			self.position.x = -2016
+		if self.position.x < -2016:
+			self.position.x = 2016
 
 func _physics_process(delta):
 	var direction := Input.get_vector("left", "right", "ui_up", "ui_down")
