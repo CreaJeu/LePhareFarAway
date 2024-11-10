@@ -1,4 +1,4 @@
-[
+{
 
 
 {
@@ -10,7 +10,7 @@
 	  "text": "Loïc ! Réveille-toi, mec ! Gwenaël à Loïc ! ALLO, LOÏC !"
 	}
   ]
-},
+}
 
 
 
@@ -76,7 +76,7 @@
 	}
   ]
 
-},
+}
 
 
 
@@ -147,7 +147,7 @@
 	}
   ]
 
-},
+}
 
 
 
@@ -230,7 +230,9 @@
 	  "text": "L’humanité… elle ne retrouvera jamais ce qu’elle a perdu."
 	}
   ]
-},
+}
+
+
 
 
 
@@ -249,4 +251,4 @@
 }
 
 
-]
+}

@@ -13,5 +13,4 @@ scale = Vector2(15, 15)
 texture = ExtResource("2_0su21")
 
 [node name="Interactable" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("3_eykdx")]
-scale = Vector2(1, 1)
 parent = NodePath("../Sprite2D")

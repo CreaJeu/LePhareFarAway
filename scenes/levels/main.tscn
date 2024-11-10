@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://fpyjp475piwv"]
+[gd_scene load_steps=16 format=3 uid="uid://fpyjp475piwv"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_d050v"]
 [ext_resource type="PackedScene" uid="uid://tuv2d44iv0ue" path="res://scenes/prefabs/player.tscn" id="1_wvub0"]
@@ -9,6 +9,8 @@
 [ext_resource type="Script" path="res://scripts/writeMessage.gd" id="5_4wyvk"]
 [ext_resource type="PackedScene" uid="uid://ceidtf6p5gate" path="res://scenes/prefabs/interactable.tscn" id="5_lmybn"]
 [ext_resource type="Texture2D" uid="uid://rd1os22xmhhj" path="res://assets/sprites/ui/cursor.png" id="6_a5bn7"]
+[ext_resource type="Texture2D" uid="uid://dr04iic5kmfwf" path="res://assets/sprites/objects/radio_single.png" id="7_bnlo4"]
+[ext_resource type="Script" path="res://scripts/radio.gd" id="7_cr3tb"]
 [ext_resource type="Script" path="res://scripts/read_more_button.gd" id="7_sarhe"]
 [ext_resource type="Script" path="res://scripts/camera_2d.gd" id="9_71xqd"]
 [ext_resource type="Texture2D" uid="uid://bxhn57ims7nvq" path="res://assets/sprites/ui/journal.png" id="9_uw74q"]
@@ -16,7 +18,7 @@
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("msgWriter")]
 script = ExtResource("1_d050v")
-msgWriter = NodePath("CanvasLayer/PanelContainer")
+msgWriter = NodePath("CanvasLayer/MessageWriter")
 
 [node name="Background" type="Node2D" parent="."]
 
@@ -91,6 +93,19 @@ position = Vector2(-900, 35)
 player = NodePath("../../../Player")
 step = -3000
 
+[node name="Radio" type="Node2D" parent="Background/secondfloor" node_paths=PackedStringArray("msgWriter")]
+position = Vector2(0, 195)
+script = ExtResource("7_cr3tb")
+msgWriter = NodePath("../../../CanvasLayer/MessageWriter")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/secondfloor/Radio"]
+scale = Vector2(3, 3)
+texture = ExtResource("7_bnlo4")
+
+[node name="Interactable" parent="Background/secondfloor/Radio" node_paths=PackedStringArray("parent") instance=ExtResource("5_lmybn")]
+parent = NodePath("../Sprite2D")
+
 [node name="thirdfloor" type="Node2D" parent="Background"]
 position = Vector2(0, -6000)
 
@@ -130,26 +145,25 @@ player = NodePath("../Player")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
-visible = false
+[node name="MessageWriter" type="PanelContainer" parent="CanvasLayer"]
 offset_left = 87.0
 offset_top = 494.0
 offset_right = 1087.0
 offset_bottom = 628.0
 script = ExtResource("5_4wyvk")
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MessageWriter"]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/PanelContainer/MarginContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/MessageWriter/MarginContainer"]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 26
 
-[node name="ReadMoreButton" type="TextureRect" parent="CanvasLayer/PanelContainer/MarginContainer/RichTextLabel"]
+[node name="ReadMoreButton" type="TextureRect" parent="CanvasLayer/MessageWriter/MarginContainer/RichTextLabel"]
 visible = false
 layout_mode = 0
 offset_left = 928.0
