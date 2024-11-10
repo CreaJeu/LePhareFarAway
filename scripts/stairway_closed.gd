@@ -16,3 +16,5 @@ func do_action(interaction_name: String):
 			$Sprite2DOpen.visible = true
 			$Sprite2DClose.visible = false
 			is_open = true
+	else:
+		GameState.read_conversation(5)
