@@ -4,6 +4,7 @@ var dialogs: Array = []
 
 var has_baril: bool = false
 var msgWriter: PanelContainer
+var has_keys: bool = false
 
 signal pause_game
 

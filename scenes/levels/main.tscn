@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://fpyjp475piwv"]
+[gd_scene load_steps=19 format=3 uid="uid://fpyjp475piwv"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_d050v"]
 [ext_resource type="PackedScene" uid="uid://tuv2d44iv0ue" path="res://scenes/prefabs/player.tscn" id="1_wvub0"]
@@ -11,8 +11,11 @@
 [ext_resource type="Texture2D" uid="uid://rd1os22xmhhj" path="res://assets/sprites/ui/cursor.png" id="6_a5bn7"]
 [ext_resource type="Texture2D" uid="uid://dr04iic5kmfwf" path="res://assets/sprites/objects/radio_single.png" id="7_bnlo4"]
 [ext_resource type="Script" path="res://scripts/radio.gd" id="7_cr3tb"]
+[ext_resource type="Texture2D" uid="uid://cembq1866m042" path="res://icon.svg" id="7_rf417"]
 [ext_resource type="Script" path="res://scripts/read_more_button.gd" id="7_sarhe"]
+[ext_resource type="Script" path="res://scripts/keys.gd" id="7_twk72"]
 [ext_resource type="Script" path="res://scripts/camera_2d.gd" id="9_71xqd"]
+[ext_resource type="PackedScene" uid="uid://b264uow22b5bt" path="res://scenes/prefabs/stairway_closed.tscn" id="9_g25y6"]
 [ext_resource type="Texture2D" uid="uid://bxhn57ims7nvq" path="res://assets/sprites/ui/journal.png" id="9_uw74q"]
 [ext_resource type="Script" path="res://scripts/journal_button.gd" id="10_dhrxt"]
 
@@ -83,7 +86,7 @@ position = Vector2(672, 0)
 scale = Vector2(10.5, 10.5)
 texture = ExtResource("3_yonmt")
 
-[node name="Stairway2" parent="Background/secondfloor" node_paths=PackedStringArray("player") instance=ExtResource("4_y15gb")]
+[node name="StairwayClosed" parent="Background/secondfloor" node_paths=PackedStringArray("player") instance=ExtResource("9_g25y6")]
 position = Vector2(900, 35)
 player = NodePath("../../../Player")
 step = 3000
@@ -94,7 +97,7 @@ player = NodePath("../../../Player")
 step = -3000
 
 [node name="Radio" type="Node2D" parent="Background/secondfloor"]
-position = Vector2(0, 195)
+position = Vector2(-372, 195)
 script = ExtResource("7_cr3tb")
 metadata/_edit_group_ = true
 
@@ -133,12 +136,23 @@ position = Vector2(-900, 35)
 player = NodePath("../../../Player")
 step = 3000
 
+[node name="Keys" type="Node2D" parent="Background/thirdfloor"]
+position = Vector2(507, 182)
+script = ExtResource("7_twk72")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/thirdfloor/Keys"]
+texture = ExtResource("7_rf417")
+
+[node name="Interactable" parent="Background/thirdfloor/Keys" node_paths=PackedStringArray("parent") instance=ExtResource("5_lmybn")]
+parent = NodePath("../Sprite2D")
+
 [node name="Player" parent="." instance=ExtResource("1_wvub0")]
 process_mode = 0
-position = Vector2(0, 128)
+position = Vector2(0, -2900)
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
-position = Vector2(0, 128)
+position = Vector2(0, -2900)
 offset = Vector2(0, -128)
 script = ExtResource("9_71xqd")
 player = NodePath("../Player")
