@@ -30,19 +30,23 @@ func _physics_process(delta):
 	if Input.is_action_pressed("left"):
 		$WorldModel/ParticlesLeft.emitting = true
 		$WorldModel/ParticlesRight.emitting = true
+		if not $WorldModel/AudioStreamPlayer.playing:
+			$WorldModel/AudioStreamPlayer.playing = true
 		_animation_player.play("walk")
-		_animation_player.flip_h = true
-		
+		_animation_player.flip_h = true		
 		
 	elif Input.is_action_pressed("right"):
 		$WorldModel/ParticlesLeft.emitting = true
 		$WorldModel/ParticlesRight.emitting = true
+		if not $WorldModel/AudioStreamPlayer.playing:
+			$WorldModel/AudioStreamPlayer.playing = true
 		_animation_player.play("walk")
 		_animation_player.flip_h = false
 		
 	else:
 		$WorldModel/ParticlesLeft.emitting = false
 		$WorldModel/ParticlesRight.emitting = false
+		$WorldModel/AudioStreamPlayer.playing = false
 		_animation_player.play("default")
 		
 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://tuv2d44iv0ue"]
+[gd_scene load_steps=6 format=3 uid="uid://tuv2d44iv0ue"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_it5w8"]
-[ext_resource type="SpriteFrames" path="res://assets/caracter/caracterAnimation.res" id="2_35aa2"]
+[ext_resource type="SpriteFrames" uid="uid://debwj5nm14ucm" path="res://assets/caracter/caracterAnimation.res" id="2_35aa2"]
 [ext_resource type="Texture2D" uid="uid://b68pnjxm7x05o" path="res://assets/caracter/caracter.png" id="2_ccdiw"]
+[ext_resource type="AudioStream" uid="uid://dv1u4d75xgwtp" path="res://assets/sounds/sfx/steps.mp3" id="4_p77x2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_07orv"]
 radius = 68.0
@@ -62,3 +63,6 @@ initial_velocity_max = 50.0
 scale_amount_min = 0.5
 scale_amount_max = 1.5
 color = Color(0.698039, 0.698039, 0.698039, 0.643137)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="WorldModel"]
+stream = ExtResource("4_p77x2")
