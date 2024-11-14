@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://fpyjp475piwv"]
+[gd_scene load_steps=34 format=3 uid="uid://fpyjp475piwv"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_d050v"]
 [ext_resource type="PackedScene" uid="uid://tuv2d44iv0ue" path="res://scenes/prefabs/player.tscn" id="1_wvub0"]
@@ -28,6 +28,7 @@
 [ext_resource type="Script" path="res://scripts/global_sounds.gd" id="16_0m4vb"]
 [ext_resource type="Script" path="res://scripts/interactable_objects/note1.gd" id="16_xpwtx"]
 [ext_resource type="Texture2D" uid="uid://b03undjwljjr8" path="res://assets/sprites/ui/notesInRoomSprites/Note1.png" id="17_mi2dd"]
+[ext_resource type="Texture2D" uid="uid://bspghtmgcqdnb" path="res://assets/sprites/ui/notesInRoomSprites/note2.png" id="18_hccq6"]
 [ext_resource type="AudioStream" uid="uid://bxbun7h314hsm" path="res://assets/sounds/music/ambient-dream.mp3" id="18_lm5bh"]
 [ext_resource type="AudioStream" uid="uid://dxc8a4w2uje7l" path="res://assets/sounds/sfx/static.mp3" id="21_k1eoh"]
 
@@ -70,6 +71,18 @@ texture = ExtResource("2_km4mh")
 position = Vector2(923, -22)
 player = NodePath("../../../Player")
 step = -3000
+
+[node name="Note2" type="Node2D" parent="Background/firstfloor"]
+position = Vector2(-1380, 261)
+script = ExtResource("16_xpwtx")
+metadata/_edit_group_ = true
+
+[node name="Note1Sprite" type="Sprite2D" parent="Background/firstfloor/Note2"]
+scale = Vector2(3, 3)
+texture = ExtResource("18_hccq6")
+
+[node name="Interactable" parent="Background/firstfloor/Note2" node_paths=PackedStringArray("parent") instance=ExtResource("5_lmybn")]
+parent = NodePath("../Note1Sprite")
 
 [node name="Generator" type="Node2D" parent="Background/firstfloor"]
 position = Vector2(319, 179)
@@ -232,7 +245,7 @@ parent = NodePath("../Sprite2D")
 
 [node name="Player" parent="." instance=ExtResource("1_wvub0")]
 process_mode = 0
-position = Vector2(0, -2900)
+position = Vector2(1, -2840)
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
 position = Vector2(0, -2900)
@@ -333,4 +346,5 @@ scale = Vector2(2, 2)
 texture_normal = ExtResource("9_uw74q")
 script = ExtResource("10_dhrxt")
 
+[connection signal="interactable_used" from="Background/firstfloor/Note2/Interactable" to="Background/firstfloor/Note2" method="_on_interactable_interactable_used"]
 [connection signal="interactable_used" from="Background/secondfloor/Note1/Interactable" to="Background/secondfloor/Note1" method="_on_interactable_interactable_used"]

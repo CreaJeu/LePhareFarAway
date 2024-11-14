@@ -12,7 +12,11 @@ func _process(delta):
 
 
 func _on_interactable_interactable_used(interaction_name):
-	var sceneNote1 = load("res://scenes/prefabs/notes/note1.tscn")
+	
+	var pathToNoteScene : String = "res://scenes/prefabs/notes/note"
+	var toConcat: String = str(self.name)[-1] + ".tscn"
+	var sceneNote1 = load(pathToNoteScene + toConcat)
+	
 	var instanceNote1: Node2D = sceneNote1.instantiate()
 	var root : Node2D = get_tree().get_current_scene()
 
