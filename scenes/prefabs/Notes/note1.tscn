@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://scripts/interactable_objects/note_1_scene.gd" id="1_mwrvn"]
 [ext_resource type="Texture2D" uid="uid://bgye0e5u41yin" path="res://assets/sprites/ui/paper UI le bon/Paper/Menu1.png" id="2_ad4dn"]
-[ext_resource type="Texture2D" uid="uid://ck8ntsrb1nn1j" path="res://assets/sprites/ui/backgroundNote.png" id="2_bmles"]
-[ext_resource type="FontFile" uid="uid://cs6dyf0i3qsxb" path="res://assets/fonts/AcPlus_IBM_BIOS.ttf" id="3_lmnyh"]
-[ext_resource type="Texture2D" uid="uid://ja7vgrcg177n" path="res://assets/sprites/ui/cross.png" id="4_d3vuv"]
+[ext_resource type="Texture2D" uid="uid://d1xmelc1ipq1b" path="res://assets/sprites/ui/backgroundNote.png" id="2_bmles"]
+[ext_resource type="FontFile" uid="uid://ce8vdb68o4k1h" path="res://assets/fonts/AcPlus_IBM_BIOS.ttf" id="3_lmnyh"]
+[ext_resource type="Texture2D" uid="uid://dopsjgawgbhj1" path="res://assets/sprites/ui/cross.png" id="4_d3vuv"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_mwrvn")

@@ -13,5 +13,6 @@ func _process(delta):
 
 func _on_texture_button_pressed():
 	get_tree().paused = false
+	get_node("/root/Main/CanvasLayer").visible = true
 	self.queue_free()
 	

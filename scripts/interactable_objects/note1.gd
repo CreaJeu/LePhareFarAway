@@ -24,8 +24,8 @@ func _on_interactable_interactable_used(interaction_name):
 	var left_corner_position : Vector2 = playerCamera.get_screen_center_position() - half_viewport * playerCamera.zoom
 	
 	#instanceNote1.z_as_relative = false
-	instanceNote1.z_index = 7 #for unknown reason doesn't go in front of the book top right corner
-	
+	instanceNote1.z_index = 6 #for unknown reason doesn't go in front of the book top right corner
+	$"/root/Main/CanvasLayer".visible = false
 	instanceNote1.position = left_corner_position
 	get_tree().paused = true
 	
