@@ -1,32 +1,35 @@
-[gd_scene load_steps=4 format=3 uid="uid://dlrt8bup8lgby"]
+[gd_scene load_steps=6 format=3 uid="uid://sjivnvr62n53"]
 
-[ext_resource type="Texture2D" uid="uid://ck8ntsrb1nn1j" path="res://assets/sprites/ui/backgroundNote.png" id="1_palla"]
-[ext_resource type="Texture2D" uid="uid://bgye0e5u41yin" path="res://assets/sprites/ui/paper UI le bon/Paper/Menu1.png" id="2_oqu5g"]
-[ext_resource type="FontFile" uid="uid://cs6dyf0i3qsxb" path="res://assets/fonts/AcPlus_IBM_BIOS.ttf" id="3_7bvrq"]
+[ext_resource type="Script" path="res://scripts/interactable_objects/note_1_scene.gd" id="1_3jj3k"]
+[ext_resource type="Texture2D" uid="uid://d1xmelc1ipq1b" path="res://assets/sprites/ui/backgroundNote.png" id="2_q1as0"]
+[ext_resource type="Texture2D" uid="uid://bgye0e5u41yin" path="res://assets/sprites/ui/paper UI le bon/Paper/Menu1.png" id="3_b632l"]
+[ext_resource type="FontFile" uid="uid://ce8vdb68o4k1h" path="res://assets/fonts/AcPlus_IBM_BIOS.ttf" id="4_tl5wj"]
+[ext_resource type="Texture2D" uid="uid://dopsjgawgbhj1" path="res://assets/sprites/ui/cross.png" id="5_fbg3n"]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_3jj3k")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(575, 324.5)
 scale = Vector2(4.5, 5.05469)
-texture = ExtResource("1_palla")
+texture = ExtResource("2_q1as0")
 
 [node name="Note" type="Sprite2D" parent="."]
 position = Vector2(581, 327.5)
 scale = Vector2(10.1416, 5.6087)
-texture = ExtResource("2_oqu5g")
+texture = ExtResource("3_b632l")
 
 [node name="Title" type="RichTextLabel" parent="."]
 texture_filter = 1
-offset_left = 183.0
-offset_top = 119.0
-offset_right = 1080.0
-offset_bottom = 176.0
+offset_left = 198.0
+offset_top = 115.0
+offset_right = 1095.0
+offset_bottom = 162.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_fonts/normal_font = ExtResource("3_7bvrq")
-theme_override_font_sizes/normal_font_size = 22
-text = "Rapport de transmission audio du 25 août 1945"
+theme_override_fonts/normal_font = ExtResource("4_tl5wj")
+theme_override_font_sizes/normal_font_size = 24
+text = "Title"
 
 [node name="Text" type="RichTextLabel" parent="."]
 texture_filter = 1
@@ -36,7 +39,15 @@ offset_right = 1058.0
 offset_bottom = 528.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_fonts/normal_font = ExtResource("3_7bvrq")
+theme_override_fonts/normal_font = ExtResource("4_tl5wj")
 theme_override_font_sizes/normal_font_size = 20
-text = "Le 25 août 1945, une bombe nucléaire est larguée (sera) sur Paris par un bombardier allemand spécialement modifié pour cette mission. La bombe, d'une puissance d'environ 20 kilotonnes, explose(ra) au-dessus du centre de Paris. Acte désespéré face à toutes leurs défaites sur le front.
-"
+text = "Text"
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 1070.0
+offset_top = 49.0
+offset_right = 1134.0
+offset_bottom = 113.0
+texture_normal = ExtResource("5_fbg3n")
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

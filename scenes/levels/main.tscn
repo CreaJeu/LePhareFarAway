@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://fpyjp475piwv"]
+[gd_scene load_steps=36 format=3 uid="uid://fpyjp475piwv"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_d050v"]
 [ext_resource type="PackedScene" uid="uid://tuv2d44iv0ue" path="res://scenes/prefabs/player.tscn" id="1_wvub0"]
@@ -30,6 +30,8 @@
 [ext_resource type="Texture2D" uid="uid://b03undjwljjr8" path="res://assets/sprites/ui/notesInRoomSprites/Note1.png" id="17_mi2dd"]
 [ext_resource type="Texture2D" uid="uid://bspghtmgcqdnb" path="res://assets/sprites/ui/notesInRoomSprites/note2.png" id="18_hccq6"]
 [ext_resource type="AudioStream" uid="uid://bxbun7h314hsm" path="res://assets/sounds/music/ambient-dream.mp3" id="18_lm5bh"]
+[ext_resource type="Texture2D" uid="uid://dwxmpm6tusx5i" path="res://assets/sprites/objects/valve_inr_oom.png" id="19_6kiv7"]
+[ext_resource type="Script" path="res://scripts/interactable_objects/valve.gd" id="19_rmo6g"]
 [ext_resource type="AudioStream" uid="uid://dxc8a4w2uje7l" path="res://assets/sounds/sfx/static.mp3" id="21_k1eoh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hbojd"]
@@ -225,6 +227,19 @@ position = Vector2(-908, 4)
 player = NodePath("../../../Player")
 step = 3000
 
+[node name="Valve" type="Node2D" parent="Background/thirdfloor"]
+position = Vector2(-312, 3)
+script = ExtResource("19_rmo6g")
+metadata/_edit_group_ = true
+
+[node name="ValveInRoom" type="Sprite2D" parent="Background/thirdfloor/Valve"]
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("19_6kiv7")
+
+[node name="Interactable" parent="Background/thirdfloor/Valve" node_paths=PackedStringArray("parent") instance=ExtResource("5_lmybn")]
+parent = NodePath("../ValveInRoom")
+
 [node name="Table" type="Sprite2D" parent="Background/thirdfloor"]
 position = Vector2(597, 162)
 scale = Vector2(6, 6)
@@ -348,3 +363,4 @@ script = ExtResource("10_dhrxt")
 
 [connection signal="interactable_used" from="Background/firstfloor/Note2/Interactable" to="Background/firstfloor/Note2" method="_on_interactable_interactable_used"]
 [connection signal="interactable_used" from="Background/secondfloor/Note1/Interactable" to="Background/secondfloor/Note1" method="_on_interactable_interactable_used"]
+[connection signal="interactable_used" from="Background/thirdfloor/Valve/Interactable" to="Background/thirdfloor/Valve" method="_on_interactable_interactable_used"]

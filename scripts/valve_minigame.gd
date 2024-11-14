@@ -47,10 +47,10 @@ func _process(delta):
 			# Reset valve rotation to avoid overflow (keep it within -PI to PI range)
 			valve.rotation = wrapf(valve.rotation, -PI, PI)
 
-			# Check if the score threshold is reached to change the scene
+			# END OF THE GAME
 			if score >= scene_change_threshold:
-				print("Score threshold reached, changing scene!")
-				get_tree().change_scene("res://main.tscn")  # Replace with your next scene path
-
-		# Update the last angle for the next frame
+				get_tree().paused = false
+				get_node("/root/Main/CanvasLayer").visible = true
+				self.queue_free()
+				
 		last_angle_to_mouse = current_angle_to_mouse
