@@ -12,6 +12,7 @@ var all_missions: Array = []
 
 signal pause_game
 signal play_sound(name: String)
+signal stop_sound(name: String)
 
 func _ready():
 	var dialogs_file: FileAccess = FileAccess.open("res://resources/data/dialogs.json", FileAccess.READ)

@@ -22,9 +22,11 @@ func _input(event):
 			if handle.global_position.distance_to(mouse_pos) <= activation_radius:
 				is_grabbing_handle = true  # Start rotating
 				last_angle_to_mouse = valve.global_position.angle_to_point(mouse_pos)
+				GameState.emit_signal("play_sound", "Valve")
 		else:
 			# Stop rotation when the mouse button is released.
 			is_grabbing_handle = false
+			GameState.emit_signal("stop_sound", "Valve")
 
 func _process(delta):
 	if is_grabbing_handle:
@@ -33,6 +35,7 @@ func _process(delta):
 		var valve_center = valve.global_position
 		var current_angle_to_mouse = valve_center.angle_to_point(mouse_pos)
 		valve.rotation += angle_difference(last_angle_to_mouse,current_angle_to_mouse)
+		
 
 		# Check if a full rotation has been completed
 		if abs(valve.rotation) >= rotation_threshold:
@@ -51,6 +54,7 @@ func _process(delta):
 			if score >= scene_change_threshold:
 				get_tree().paused = false
 				get_node("/root/Main/CanvasLayer").visible = true
+				GameState.emit_signal("stop_sound", "Valve")
 				self.queue_free()
 				
 		last_angle_to_mouse = current_angle_to_mouse

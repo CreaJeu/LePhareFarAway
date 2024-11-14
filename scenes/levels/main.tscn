@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://fpyjp475piwv"]
+[gd_scene load_steps=37 format=3 uid="uid://fpyjp475piwv"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_d050v"]
 [ext_resource type="PackedScene" uid="uid://tuv2d44iv0ue" path="res://scenes/prefabs/player.tscn" id="1_wvub0"]
@@ -33,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://dwxmpm6tusx5i" path="res://assets/sprites/objects/valve_inr_oom.png" id="19_6kiv7"]
 [ext_resource type="Script" path="res://scripts/interactable_objects/valve.gd" id="19_rmo6g"]
 [ext_resource type="AudioStream" uid="uid://dxc8a4w2uje7l" path="res://assets/sounds/sfx/static.mp3" id="21_k1eoh"]
+[ext_resource type="AudioStream" uid="uid://npy32k5166pt" path="res://assets/sounds/sfx/valve.mp3" id="27_fnj3t"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hbojd"]
 bg_color = Color(0, 0, 0, 1)
@@ -273,6 +274,9 @@ script = ExtResource("16_0m4vb")
 
 [node name="PickupKeys" type="AudioStreamPlayer" parent="GlobalSounds"]
 stream = ExtResource("14_k4ee5")
+
+[node name="Valve" type="AudioStreamPlayer" parent="GlobalSounds"]
+stream = ExtResource("27_fnj3t")
 
 [node name="Ambient" type="AudioStreamPlayer" parent="GlobalSounds"]
 process_mode = 3
