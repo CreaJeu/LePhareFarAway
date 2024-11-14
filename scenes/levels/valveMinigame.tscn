@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5mdwwvqctpwb"]
+
+[ext_resource type="Texture2D" uid="uid://bthqfdt0jw6cg" path="res://assets/sprites/objects/valve.png" id="1_1jil0"]
+[ext_resource type="Script" path="res://scripts/valve_minigame.gd" id="1_gffpb"]
+[ext_resource type="Texture2D" uid="uid://380kw1oyjurn" path="res://assets/sprites/objects/Background.png" id="2_sndwk"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_gffpb")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(5, 5)
+texture = ExtResource("2_sndwk")
+
+[node name="Camera2D" type="Camera2D" parent="Background"]
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -217.0
+offset_top = 248.0
+offset_right = 224.0
+offset_bottom = 304.0
+theme_override_font_sizes/font_size = 25
+show_percentage = false
+
+[node name="Valve" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(5, 5)
+texture = ExtResource("1_1jil0")
+
+[node name="Handle" type="Node2D" parent="Valve"]
+position = Vector2(-40.5, 1.75)
+scale = Vector2(0.25, 0.25)
