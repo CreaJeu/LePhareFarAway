@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccpjpwco3eprc"]
+
+[ext_resource type="Texture2D" uid="uid://ck8ntsrb1nn1j" path="res://assets/sprites/ui/backgroundNote.png" id="1_t3jwv"]
+[ext_resource type="Texture2D" uid="uid://bgye0e5u41yin" path="res://assets/sprites/ui/paper UI le bon/Paper/Menu1.png" id="2_rbqry"]
+[ext_resource type="FontFile" uid="uid://cs6dyf0i3qsxb" path="res://assets/fonts/AcPlus_IBM_BIOS.ttf" id="3_o40xt"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(575, 324.5)
+scale = Vector2(4.5, 5.05469)
+texture = ExtResource("1_t3jwv")
+
+[node name="Note" type="Sprite2D" parent="."]
+position = Vector2(581, 327.5)
+scale = Vector2(10.1416, 5.6087)
+texture = ExtResource("2_rbqry")
+
+[node name="Title" type="RichTextLabel" parent="."]
+texture_filter = 1
+offset_left = 183.0
+offset_top = 119.0
+offset_right = 1080.0
+offset_bottom = 176.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("3_o40xt")
+theme_override_font_sizes/normal_font_size = 22
+text = "Rapport de transmission audio du 21 août 1945"
+
+[node name="Text" type="RichTextLabel" parent="."]
+texture_filter = 1
+offset_left = 161.0
+offset_top = 196.0
+offset_right = 1058.0
+offset_bottom = 528.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("3_o40xt")
+theme_override_font_sizes/normal_font_size = 20
+text = "D’après nos infos Werner Heisenberg a un labo depuis longtemps qui se penche de fou sur la bombe dans le projet “Uranverein” (club uranium) et sont sur le point de découvrir la bombe.
+Selon nos informateurs l'Allemagne possède la bombe nucléaire, elle aurait fait un test nucléaire sur une île : l'île d’Usedom, qui s’est bien déroulée. J'ai bien peur qu' ils s’apprêtent à l’utiliser sur nous face en dernier recours.
+"
