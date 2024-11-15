@@ -32,4 +32,6 @@ func _on_interactable_interactable_used(interaction_name):
 	$"/root/Main/CanvasLayer".visible = false
 	instanceValve.position = left_corner_position
 	get_tree().paused = true
+	GameState.emit_signal("play_sound", "PickupPaper")
+
 	

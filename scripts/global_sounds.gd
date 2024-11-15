@@ -13,6 +13,8 @@ func play_sound(name: String) -> void:
 			$PickupKeys.play()
 		"Valve":
 			$Valve.play()
+		"PickupPaper":
+			$PickupPaper.play()
 		_:
 			pass
 
