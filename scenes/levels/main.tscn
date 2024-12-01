@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://fpyjp475piwv"]
+[gd_scene load_steps=36 format=3 uid="uid://fpyjp475piwv"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_d050v"]
 [ext_resource type="PackedScene" uid="uid://tuv2d44iv0ue" path="res://scenes/prefabs/player.tscn" id="1_wvub0"]
@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://ce18dtp4rwri0" path="res://assets/sprites/ui/notesInRoomSprites/note2.png" id="18_hccq6"]
 [ext_resource type="AudioStream" uid="uid://dgupjsru1017u" path="res://assets/sounds/music/ambient-dream.mp3" id="18_lm5bh"]
 [ext_resource type="Texture2D" uid="uid://bles5boe8x102" path="res://assets/sprites/objects/valve_inr_oom.png" id="19_6kiv7"]
+[ext_resource type="Texture2D" uid="uid://djtabol2ny606" path="res://assets/sprites/objects/chambre_game_jam.png" id="19_n0rwr"]
 [ext_resource type="Script" path="res://scripts/interactable_objects/valve.gd" id="19_rmo6g"]
 [ext_resource type="AudioStream" uid="uid://3ubattcqpnpx" path="res://assets/sounds/sfx/valve.mp3" id="27_fnj3t"]
 [ext_resource type="AudioStream" uid="uid://dgn4k7q8gdtiv" path="res://assets/sounds/sfx/pickup_paper.mp3" id="29_c7e7t"]
@@ -164,7 +165,7 @@ texture = ExtResource("7_bnlo4")
 parent = NodePath("../Sprite2D")
 
 [node name="GasoilLamp" type="Node2D" parent="Background/secondfloor"]
-position = Vector2(1787, 126)
+position = Vector2(1413, 107)
 script = ExtResource("14_6vndg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Background/secondfloor/GasoilLamp"]
@@ -221,13 +222,23 @@ position = Vector2(672, 0)
 scale = Vector2(10.5, 10.5)
 texture = ExtResource("2_km4mh")
 
+[node name="BedroomBackground" type="Sprite2D" parent="Background/thirdfloor"]
+position = Vector2(3.00006, 32)
+scale = Vector2(10, 10)
+texture = ExtResource("19_n0rwr")
+
 [node name="Stairway4" parent="Background/thirdfloor" node_paths=PackedStringArray("player") instance=ExtResource("4_y15gb")]
 position = Vector2(-908, 4)
 player = NodePath("../../../Player")
 step = 3000
 
+[node name="StairwayClosed" parent="Background/thirdfloor" node_paths=PackedStringArray("player") instance=ExtResource("9_g25y6")]
+position = Vector2(916, -26)
+player = NodePath("../../../Player")
+step = 3000
+
 [node name="Valve" type="Node2D" parent="Background/thirdfloor"]
-position = Vector2(-312, 3)
+position = Vector2(-1362, 13)
 script = ExtResource("19_rmo6g")
 metadata/_edit_group_ = true
 
@@ -239,13 +250,8 @@ texture = ExtResource("19_6kiv7")
 [node name="Interactable" parent="Background/thirdfloor/Valve" node_paths=PackedStringArray("parent") instance=ExtResource("5_lmybn")]
 parent = NodePath("../ValveInRoom")
 
-[node name="Table" type="Sprite2D" parent="Background/thirdfloor"]
-position = Vector2(597, 162)
-scale = Vector2(6, 6)
-texture = ExtResource("8_rofi5")
-
 [node name="Keys" type="Node2D" parent="Background/thirdfloor"]
-position = Vector2(586, 59)
+position = Vector2(146, 62)
 script = ExtResource("7_twk72")
 metadata/_edit_group_ = true
 
