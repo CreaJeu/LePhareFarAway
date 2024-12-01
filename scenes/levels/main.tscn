@@ -1,38 +1,47 @@
-[gd_scene load_steps=36 format=3 uid="uid://fpyjp475piwv"]
+[gd_scene load_steps=45 format=3 uid="uid://fpyjp475piwv"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_d050v"]
 [ext_resource type="PackedScene" uid="uid://tuv2d44iv0ue" path="res://scenes/prefabs/player.tscn" id="1_wvub0"]
-[ext_resource type="Texture2D" uid="uid://bpfvbb52htqih" path="res://assets/sprites/tileset/stonetile_background_new.png" id="2_km4mh"]
+[ext_resource type="Texture2D" uid="uid://b31t72slmhy6t" path="res://assets/sprites/tileset/stonetile_background_new.png" id="2_km4mh"]
 [ext_resource type="Script" path="res://scripts/interactable_objects/generator.gd" id="4_haq4n"]
 [ext_resource type="Texture2D" uid="uid://b73c7xfg6clsd" path="res://assets/sprites/objects/generator.png" id="4_p7si1"]
 [ext_resource type="PackedScene" uid="uid://b5uvlupwwli50" path="res://scenes/prefabs/stairway.tscn" id="4_y15gb"]
+[ext_resource type="Script" path="res://scripts/writeMessage.gd" id="5_4wyvk"]
 [ext_resource type="PackedScene" uid="uid://ceidtf6p5gate" path="res://scenes/prefabs/interactable.tscn" id="5_lmybn"]
-[ext_resource type="Texture2D" uid="uid://bgfnjsfqjhl3u" path="res://assets/sprites/objects/garde_manger.png" id="7_5ogwh"]
+[ext_resource type="Texture2D" uid="uid://rd1os22xmhhj" path="res://assets/sprites/ui/cursor.png" id="6_a5bn7"]
+[ext_resource type="Texture2D" uid="uid://exa4kxkc17tx" path="res://assets/sprites/objects/garde_manger.png" id="7_5ogwh"]
 [ext_resource type="Texture2D" uid="uid://dr04iic5kmfwf" path="res://assets/sprites/objects/radio_single.png" id="7_bnlo4"]
 [ext_resource type="Script" path="res://scripts/radio.gd" id="7_cr3tb"]
+[ext_resource type="Script" path="res://scripts/read_more_button.gd" id="7_sarhe"]
 [ext_resource type="Script" path="res://scripts/keys.gd" id="7_twk72"]
-[ext_resource type="Texture2D" uid="uid://8di51t7bv4vq" path="res://assets/sprites/objects/table.png" id="8_rofi5"]
+[ext_resource type="Texture2D" uid="uid://vxndsopo0oe1" path="res://assets/sprites/objects/table.png" id="8_rofi5"]
 [ext_resource type="Script" path="res://scripts/gasoil_barrel.gd" id="8_uddix"]
 [ext_resource type="Script" path="res://scripts/camera_2d.gd" id="9_71xqd"]
-[ext_resource type="Texture2D" uid="uid://dqjvi30ni0fo5" path="res://assets/sprites/objects/barrel.png" id="9_af2vm"]
+[ext_resource type="Texture2D" uid="uid://b44y67rf2u3mn" path="res://assets/sprites/objects/barrel.png" id="9_af2vm"]
 [ext_resource type="PackedScene" uid="uid://beacbs7htxw2d" path="res://scenes/prefabs/stairway_closed.tscn" id="9_g25y6"]
 [ext_resource type="Texture2D" uid="uid://bxhn57ims7nvq" path="res://assets/sprites/ui/journal.png" id="9_uw74q"]
 [ext_resource type="Script" path="res://scripts/journal_button.gd" id="10_dhrxt"]
-[ext_resource type="Texture2D" uid="uid://df53auqshcbet" path="res://assets/sprites/objects/Cle.png" id="11_qg1d3"]
+[ext_resource type="Texture2D" uid="uid://vj88ls3kqe6c" path="res://assets/sprites/objects/Cle.png" id="11_qg1d3"]
 [ext_resource type="Script" path="res://scripts/gasoil_lamp.gd" id="14_6vndg"]
-[ext_resource type="AudioStream" uid="uid://cyf3pu0twx46v" path="res://assets/sounds/sfx/keys.mp3" id="14_k4ee5"]
-[ext_resource type="Texture2D" uid="uid://dhe2etqopvgal" path="res://assets/sprites/objects/entonnoir.png" id="15_yirb7"]
+[ext_resource type="AudioStream" uid="uid://dnob6wxb1mj2w" path="res://assets/sounds/sfx/keys.mp3" id="14_k4ee5"]
+[ext_resource type="Texture2D" uid="uid://cltu33ypfyqto" path="res://assets/sprites/objects/entonnoir.png" id="15_yirb7"]
 [ext_resource type="Script" path="res://scripts/global_sounds.gd" id="16_0m4vb"]
 [ext_resource type="Script" path="res://scripts/interactable_objects/note1.gd" id="16_xpwtx"]
-[ext_resource type="Texture2D" uid="uid://cvl3n8yjjrwvp" path="res://assets/sprites/ui/notesInRoomSprites/Note1.png" id="17_mi2dd"]
-[ext_resource type="Texture2D" uid="uid://ce18dtp4rwri0" path="res://assets/sprites/ui/notesInRoomSprites/note2.png" id="18_hccq6"]
-[ext_resource type="AudioStream" uid="uid://dgupjsru1017u" path="res://assets/sounds/music/ambient-dream.mp3" id="18_lm5bh"]
-[ext_resource type="Texture2D" uid="uid://bles5boe8x102" path="res://assets/sprites/objects/valve_inr_oom.png" id="19_6kiv7"]
-[ext_resource type="Texture2D" uid="uid://djtabol2ny606" path="res://assets/sprites/objects/chambre_game_jam.png" id="19_n0rwr"]
+[ext_resource type="Texture2D" uid="uid://cydyg1qs6xd72" path="res://assets/sprites/ui/notesInRoomSprites/Note1.png" id="17_mi2dd"]
+[ext_resource type="Texture2D" uid="uid://cfgo16kcwma4e" path="res://assets/sprites/ui/notesInRoomSprites/note2.png" id="18_hccq6"]
+[ext_resource type="AudioStream" uid="uid://bgkuubtcaimg1" path="res://assets/sounds/music/ambient-dream.mp3" id="18_lm5bh"]
+[ext_resource type="Texture2D" uid="uid://dlevjomoifxjw" path="res://assets/sprites/objects/valve_inr_oom.png" id="19_6kiv7"]
 [ext_resource type="Script" path="res://scripts/interactable_objects/valve.gd" id="19_rmo6g"]
-[ext_resource type="AudioStream" uid="uid://3ubattcqpnpx" path="res://assets/sounds/sfx/valve.mp3" id="27_fnj3t"]
-[ext_resource type="AudioStream" uid="uid://dgn4k7q8gdtiv" path="res://assets/sounds/sfx/pickup_paper.mp3" id="29_c7e7t"]
-[ext_resource type="PackedScene" uid="uid://d3fvqvjhjvraq" path="res://scenes/prefabs/message_writer.tscn" id="30_jf7tr"]
+[ext_resource type="AudioStream" uid="uid://cp2wbfpp1eoax" path="res://assets/sounds/sfx/static.mp3" id="21_k1eoh"]
+[ext_resource type="Texture2D" uid="uid://cgmnj4aq1oyju" path="res://assets/last_floor/output_layers/Fences.png" id="23_tguc4"]
+[ext_resource type="Texture2D" uid="uid://ye3gshdmguox" path="res://assets/last_floor/output_layers/GlassUpPart.png" id="24_17icd"]
+[ext_resource type="Texture2D" uid="uid://dqc72ci5vml8v" path="res://assets/last_floor/output_layers/Lamp.png" id="25_c144j"]
+[ext_resource type="Texture2D" uid="uid://dtamb3r5bfa5s" path="res://assets/last_floor/output_layers/FrontBuilding.png" id="26_s87o8"]
+[ext_resource type="AudioStream" uid="uid://bvev8dal1kl7" path="res://assets/sounds/sfx/valve.mp3" id="27_fnj3t"]
+[ext_resource type="Texture2D" uid="uid://f2u57o3q2tws" path="res://assets/last_floor/output_layers/Backbuilding.png" id="27_phva5"]
+[ext_resource type="Texture2D" uid="uid://c85bpevan5kuq" path="res://assets/last_floor/output_layers/Floor.png" id="28_fe6co"]
+[ext_resource type="AudioStream" uid="uid://bcs4ib1qdmyp" path="res://assets/sounds/sfx/pickup_paper.mp3" id="29_c7e7t"]
+[ext_resource type="Texture2D" uid="uid://dfsymb5nh0k32" path="res://assets/last_floor/output_layers/Background.png" id="29_q3l4i"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hbojd"]
 bg_color = Color(0, 0, 0, 1)
@@ -165,7 +174,7 @@ texture = ExtResource("7_bnlo4")
 parent = NodePath("../Sprite2D")
 
 [node name="GasoilLamp" type="Node2D" parent="Background/secondfloor"]
-position = Vector2(1413, 107)
+position = Vector2(1787, 126)
 script = ExtResource("14_6vndg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Background/secondfloor/GasoilLamp"]
@@ -222,23 +231,13 @@ position = Vector2(672, 0)
 scale = Vector2(10.5, 10.5)
 texture = ExtResource("2_km4mh")
 
-[node name="BedroomBackground" type="Sprite2D" parent="Background/thirdfloor"]
-position = Vector2(3.00006, 32)
-scale = Vector2(10, 10)
-texture = ExtResource("19_n0rwr")
-
 [node name="Stairway4" parent="Background/thirdfloor" node_paths=PackedStringArray("player") instance=ExtResource("4_y15gb")]
 position = Vector2(-908, 4)
 player = NodePath("../../../Player")
 step = 3000
 
-[node name="StairwayClosed" parent="Background/thirdfloor" node_paths=PackedStringArray("player") instance=ExtResource("9_g25y6")]
-position = Vector2(916, -26)
-player = NodePath("../../../Player")
-step = 3000
-
 [node name="Valve" type="Node2D" parent="Background/thirdfloor"]
-position = Vector2(-1362, 13)
+position = Vector2(-312, 3)
 script = ExtResource("19_rmo6g")
 metadata/_edit_group_ = true
 
@@ -250,8 +249,13 @@ texture = ExtResource("19_6kiv7")
 [node name="Interactable" parent="Background/thirdfloor/Valve" node_paths=PackedStringArray("parent") instance=ExtResource("5_lmybn")]
 parent = NodePath("../ValveInRoom")
 
+[node name="Table" type="Sprite2D" parent="Background/thirdfloor"]
+position = Vector2(597, 162)
+scale = Vector2(6, 6)
+texture = ExtResource("8_rofi5")
+
 [node name="Keys" type="Node2D" parent="Background/thirdfloor"]
-position = Vector2(146, 62)
+position = Vector2(586, 59)
 script = ExtResource("7_twk72")
 metadata/_edit_group_ = true
 
@@ -262,6 +266,52 @@ texture = ExtResource("11_qg1d3")
 
 [node name="Interactable" parent="Background/thirdfloor/Keys" node_paths=PackedStringArray("parent") instance=ExtResource("5_lmybn")]
 parent = NodePath("../Sprite2D")
+
+[node name="Stairway5" parent="Background/thirdfloor" node_paths=PackedStringArray("player") instance=ExtResource("4_y15gb")]
+position = Vector2(923, -22)
+player = NodePath("../../../Player")
+step = -3000
+
+[node name="lastFloor" type="Node2D" parent="Background"]
+position = Vector2(1068, -9000)
+metadata/_edit_group_ = true
+
+[node name="backgroundSprites" type="Node2D" parent="Background/lastFloor"]
+
+[node name="Sprite2D7" type="Sprite2D" parent="Background/lastFloor/backgroundSprites"]
+texture_filter = 1
+scale = Vector2(5.5, 5.5)
+texture = ExtResource("29_q3l4i")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Background/lastFloor/backgroundSprites"]
+texture_filter = 1
+scale = Vector2(5.5, 5.5)
+texture = ExtResource("28_fe6co")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Background/lastFloor/backgroundSprites"]
+texture_filter = 1
+scale = Vector2(5.5, 5.5)
+texture = ExtResource("27_phva5")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Background/lastFloor/backgroundSprites"]
+texture_filter = 1
+scale = Vector2(5.5, 5.5)
+texture = ExtResource("26_s87o8")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Background/lastFloor/backgroundSprites"]
+texture_filter = 1
+scale = Vector2(5.5, 5.5)
+texture = ExtResource("25_c144j")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background/lastFloor/backgroundSprites"]
+texture_filter = 1
+scale = Vector2(5.5, 5.5)
+texture = ExtResource("24_17icd")
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/lastFloor/backgroundSprites"]
+texture_filter = 1
+scale = Vector2(5.5, 5.5)
+texture = ExtResource("23_tguc4")
 
 [node name="Player" parent="." instance=ExtResource("1_wvub0")]
 process_mode = 0
@@ -297,7 +347,38 @@ parameters/looping = true
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3
 
-[node name="MessageWriter" parent="CanvasLayer" instance=ExtResource("30_jf7tr")]
+[node name="MessageWriter" type="PanelContainer" parent="CanvasLayer"]
+visible = false
+offset_left = 87.0
+offset_top = 494.0
+offset_right = 1087.0
+offset_bottom = 628.0
+script = ExtResource("5_4wyvk")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MessageWriter"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/MessageWriter/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 26
+
+[node name="ReadMoreButton" type="TextureRect" parent="CanvasLayer/MessageWriter/MarginContainer/RichTextLabel"]
+visible = false
+layout_mode = 0
+offset_left = 928.0
+offset_top = 55.0
+offset_right = 968.0
+offset_bottom = 95.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_a5bn7")
+script = ExtResource("7_sarhe")
+
+[node name="RadioStatic" type="AudioStreamPlayer" parent="CanvasLayer/MessageWriter"]
+stream = ExtResource("21_k1eoh")
 
 [node name="Carnet" type="Control" parent="CanvasLayer"]
 layout_mode = 3
