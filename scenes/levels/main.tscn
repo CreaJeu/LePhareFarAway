@@ -1,40 +1,37 @@
-[gd_scene load_steps=38 format=3 uid="uid://fpyjp475piwv"]
+[gd_scene load_steps=35 format=3 uid="uid://fpyjp475piwv"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_d050v"]
 [ext_resource type="PackedScene" uid="uid://tuv2d44iv0ue" path="res://scenes/prefabs/player.tscn" id="1_wvub0"]
-[ext_resource type="Texture2D" uid="uid://b5728kxek1x2r" path="res://assets/sprites/tileset/stonetile_background_new.png" id="2_km4mh"]
+[ext_resource type="Texture2D" uid="uid://bpfvbb52htqih" path="res://assets/sprites/tileset/stonetile_background_new.png" id="2_km4mh"]
 [ext_resource type="Script" path="res://scripts/interactable_objects/generator.gd" id="4_haq4n"]
 [ext_resource type="Texture2D" uid="uid://b73c7xfg6clsd" path="res://assets/sprites/objects/generator.png" id="4_p7si1"]
 [ext_resource type="PackedScene" uid="uid://b5uvlupwwli50" path="res://scenes/prefabs/stairway.tscn" id="4_y15gb"]
-[ext_resource type="Script" path="res://scripts/writeMessage.gd" id="5_4wyvk"]
 [ext_resource type="PackedScene" uid="uid://ceidtf6p5gate" path="res://scenes/prefabs/interactable.tscn" id="5_lmybn"]
-[ext_resource type="Texture2D" uid="uid://rd1os22xmhhj" path="res://assets/sprites/ui/cursor.png" id="6_a5bn7"]
-[ext_resource type="Texture2D" uid="uid://df4tc24u5l8a5" path="res://assets/sprites/objects/garde_manger.png" id="7_5ogwh"]
+[ext_resource type="Texture2D" uid="uid://bgfnjsfqjhl3u" path="res://assets/sprites/objects/garde_manger.png" id="7_5ogwh"]
 [ext_resource type="Texture2D" uid="uid://dr04iic5kmfwf" path="res://assets/sprites/objects/radio_single.png" id="7_bnlo4"]
 [ext_resource type="Script" path="res://scripts/radio.gd" id="7_cr3tb"]
-[ext_resource type="Script" path="res://scripts/read_more_button.gd" id="7_sarhe"]
 [ext_resource type="Script" path="res://scripts/keys.gd" id="7_twk72"]
-[ext_resource type="Texture2D" uid="uid://6x5nijd43g0b" path="res://assets/sprites/objects/table.png" id="8_rofi5"]
+[ext_resource type="Texture2D" uid="uid://8di51t7bv4vq" path="res://assets/sprites/objects/table.png" id="8_rofi5"]
 [ext_resource type="Script" path="res://scripts/gasoil_barrel.gd" id="8_uddix"]
 [ext_resource type="Script" path="res://scripts/camera_2d.gd" id="9_71xqd"]
-[ext_resource type="Texture2D" uid="uid://cm0q1wkyjdtvs" path="res://assets/sprites/objects/barrel.png" id="9_af2vm"]
+[ext_resource type="Texture2D" uid="uid://dqjvi30ni0fo5" path="res://assets/sprites/objects/barrel.png" id="9_af2vm"]
 [ext_resource type="PackedScene" uid="uid://beacbs7htxw2d" path="res://scenes/prefabs/stairway_closed.tscn" id="9_g25y6"]
 [ext_resource type="Texture2D" uid="uid://bxhn57ims7nvq" path="res://assets/sprites/ui/journal.png" id="9_uw74q"]
 [ext_resource type="Script" path="res://scripts/journal_button.gd" id="10_dhrxt"]
-[ext_resource type="Texture2D" uid="uid://b8uqt4gnvavmp" path="res://assets/sprites/objects/Cle.png" id="11_qg1d3"]
+[ext_resource type="Texture2D" uid="uid://df53auqshcbet" path="res://assets/sprites/objects/Cle.png" id="11_qg1d3"]
 [ext_resource type="Script" path="res://scripts/gasoil_lamp.gd" id="14_6vndg"]
-[ext_resource type="AudioStream" uid="uid://dxv3lngevp3i2" path="res://assets/sounds/sfx/keys.mp3" id="14_k4ee5"]
-[ext_resource type="Texture2D" uid="uid://c3dm8usebaxms" path="res://assets/sprites/objects/entonnoir.png" id="15_yirb7"]
+[ext_resource type="AudioStream" uid="uid://cyf3pu0twx46v" path="res://assets/sounds/sfx/keys.mp3" id="14_k4ee5"]
+[ext_resource type="Texture2D" uid="uid://dhe2etqopvgal" path="res://assets/sprites/objects/entonnoir.png" id="15_yirb7"]
 [ext_resource type="Script" path="res://scripts/global_sounds.gd" id="16_0m4vb"]
 [ext_resource type="Script" path="res://scripts/interactable_objects/note1.gd" id="16_xpwtx"]
-[ext_resource type="Texture2D" uid="uid://b03undjwljjr8" path="res://assets/sprites/ui/notesInRoomSprites/Note1.png" id="17_mi2dd"]
-[ext_resource type="Texture2D" uid="uid://bspghtmgcqdnb" path="res://assets/sprites/ui/notesInRoomSprites/note2.png" id="18_hccq6"]
-[ext_resource type="AudioStream" uid="uid://bxbun7h314hsm" path="res://assets/sounds/music/ambient-dream.mp3" id="18_lm5bh"]
-[ext_resource type="Texture2D" uid="uid://dwxmpm6tusx5i" path="res://assets/sprites/objects/valve_inr_oom.png" id="19_6kiv7"]
+[ext_resource type="Texture2D" uid="uid://cvl3n8yjjrwvp" path="res://assets/sprites/ui/notesInRoomSprites/Note1.png" id="17_mi2dd"]
+[ext_resource type="Texture2D" uid="uid://ce18dtp4rwri0" path="res://assets/sprites/ui/notesInRoomSprites/note2.png" id="18_hccq6"]
+[ext_resource type="AudioStream" uid="uid://dgupjsru1017u" path="res://assets/sounds/music/ambient-dream.mp3" id="18_lm5bh"]
+[ext_resource type="Texture2D" uid="uid://bles5boe8x102" path="res://assets/sprites/objects/valve_inr_oom.png" id="19_6kiv7"]
 [ext_resource type="Script" path="res://scripts/interactable_objects/valve.gd" id="19_rmo6g"]
-[ext_resource type="AudioStream" uid="uid://dxc8a4w2uje7l" path="res://assets/sounds/sfx/static.mp3" id="21_k1eoh"]
-[ext_resource type="AudioStream" uid="uid://npy32k5166pt" path="res://assets/sounds/sfx/valve.mp3" id="27_fnj3t"]
-[ext_resource type="AudioStream" uid="uid://3my5piin4bgc" path="res://assets/sounds/sfx/pickup_paper.mp3" id="29_c7e7t"]
+[ext_resource type="AudioStream" uid="uid://3ubattcqpnpx" path="res://assets/sounds/sfx/valve.mp3" id="27_fnj3t"]
+[ext_resource type="AudioStream" uid="uid://dgn4k7q8gdtiv" path="res://assets/sounds/sfx/pickup_paper.mp3" id="29_c7e7t"]
+[ext_resource type="PackedScene" uid="uid://d3fvqvjhjvraq" path="res://scenes/prefabs/message_writer.tscn" id="30_jf7tr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hbojd"]
 bg_color = Color(0, 0, 0, 1)
@@ -294,38 +291,7 @@ parameters/looping = true
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3
 
-[node name="MessageWriter" type="PanelContainer" parent="CanvasLayer"]
-visible = false
-offset_left = 87.0
-offset_top = 494.0
-offset_right = 1087.0
-offset_bottom = 628.0
-script = ExtResource("5_4wyvk")
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MessageWriter"]
-layout_mode = 2
-theme_override_constants/margin_left = 15
-theme_override_constants/margin_top = 15
-theme_override_constants/margin_right = 15
-theme_override_constants/margin_bottom = 15
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/MessageWriter/MarginContainer"]
-layout_mode = 2
-theme_override_font_sizes/normal_font_size = 26
-
-[node name="ReadMoreButton" type="TextureRect" parent="CanvasLayer/MessageWriter/MarginContainer/RichTextLabel"]
-visible = false
-layout_mode = 0
-offset_left = 928.0
-offset_top = 55.0
-offset_right = 968.0
-offset_bottom = 95.0
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("6_a5bn7")
-script = ExtResource("7_sarhe")
-
-[node name="RadioStatic" type="AudioStreamPlayer" parent="CanvasLayer/MessageWriter"]
-stream = ExtResource("21_k1eoh")
+[node name="MessageWriter" parent="CanvasLayer" instance=ExtResource("30_jf7tr")]
 
 [node name="Carnet" type="Control" parent="CanvasLayer"]
 layout_mode = 3

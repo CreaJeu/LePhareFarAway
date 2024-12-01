@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3fvqvjhjvraq"]
+
+[ext_resource type="Script" path="res://scripts/writeMessage.gd" id="1_c7cva"]
+[ext_resource type="Texture2D" uid="uid://rd1os22xmhhj" path="res://assets/sprites/ui/cursor.png" id="2_30mrs"]
+[ext_resource type="Script" path="res://scripts/read_more_button.gd" id="3_xxq0c"]
+[ext_resource type="AudioStream" uid="uid://gicfy1wwycbm" path="res://assets/sounds/sfx/static.mp3" id="4_yw86s"]
+
+[node name="MessageWriter" type="PanelContainer"]
+visible = false
+offset_left = 87.0
+offset_top = 494.0
+offset_right = 1087.0
+offset_bottom = 628.0
+script = ExtResource("1_c7cva")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 26
+
+[node name="ReadMoreButton" type="TextureRect" parent="MarginContainer/RichTextLabel"]
+visible = false
+layout_mode = 0
+offset_left = 928.0
+offset_top = 55.0
+offset_right = 968.0
+offset_bottom = 95.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_30mrs")
+script = ExtResource("3_xxq0c")
+
+[node name="RadioStatic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_yw86s")
