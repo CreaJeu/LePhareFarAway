@@ -277,7 +277,7 @@ player = NodePath("../../../Player")
 step = -3000
 
 [node name="lastFloor" type="Node2D" parent="Background"]
-position = Vector2(1068, -9000)
+position = Vector2(991, -9000)
 
 [node name="backgroundSprites" type="Node2D" parent="Background/lastFloor"]
 
