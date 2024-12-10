@@ -58,3 +58,10 @@ func _process(delta):
 				self.queue_free()
 				
 		last_angle_to_mouse = current_angle_to_mouse
+
+
+func _on_cross_pressed() -> void:
+	get_tree().paused = false
+	get_node("/root/Main/CanvasLayer").visible = true
+	GameState.emit_signal("stop_sound", "Valve")
+	self.queue_free()
